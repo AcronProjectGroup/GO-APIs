@@ -1,0 +1,12 @@
+Go only has the for loop, while other languages have for, while, do while, etc.
+Three part for loop: initialize; condition; iterator, e.g.
+    for i := 0; i < 10; i++ {
+
+    }
+
+while loop:
+    for x == true {
+
+    }
+
+Infinite for loop: for {}
