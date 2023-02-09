@@ -10,3 +10,15 @@ while loop:
     }
 
 Infinite for loop: for {}
+
+-----
+
+How to use delve (dlv), Go's debugger.
+
+Nested loops
+
+How to use the debugger with console applications.
+
+Explored Hammer Bitcoin and Eliza
+
+Looked at code to determine which is "better"
