@@ -1,0 +1,4 @@
+Decisions:
+    * if/else
+    * switch
+    * select
