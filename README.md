@@ -14,5 +14,11 @@
 |   Guess-the-Number-Game
 |   tag 0.1.04:
 |   Refrustructure-Guess-the-Number-Game
-|   AND my self discovery:
-|   Refrustructure-Guess-the-Number-Game
+
+
+### My training projects are in this section
+
+|   Basic:
+|------------------------------------------
+|   006-animation.go:
+|   for animation in Terminal
