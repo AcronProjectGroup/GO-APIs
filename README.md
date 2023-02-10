@@ -8,7 +8,7 @@ My learning started in 2022 and continues till today.
 </p>
 
 
-|   Tags:
+|Tags
 |------------------------------------------
 |   tag 0.1.00NanaJanashia:
 |   End of learning from Nana Janashia
@@ -24,7 +24,7 @@ My learning started in 2022 and continues till today.
 
 ### My training projects are in this section
 
-|   Basic:           |                           |
+|Basic               |Issue                      |
 |--------------------|---------------------------|
 |   006-animation.go:| for animation in Terminal |
 |                    |                           |
