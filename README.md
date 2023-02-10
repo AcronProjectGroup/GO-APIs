@@ -14,3 +14,5 @@
 |   Guess-the-Number-Game
 |   tag 0.1.04:
 |   Refrustructure-Guess-the-Number-Game
+|   AND my self discovery:
+|   Refrustructure-Guess-the-Number-Game
