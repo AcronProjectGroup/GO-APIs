@@ -24,7 +24,8 @@ My learning started in 2022 and continues till today.
 
 ### My training projects are in this section
 
-|Basic               |Issue                      |
-|--------------------|---------------------------|
-|   006-animation.go:| for animation in Terminal |
-|                    |                           |
+|Basic               |Issue                      |      |Basic               |Issue                      |                    
+|--------------------|---------------------------|      |--------------------|---------------------------|
+|   006-animation.go:| for animation in Terminal |      |   006-animation.go:| for animation in Terminal |
+|                    |                           |      |                    |                           |
+
