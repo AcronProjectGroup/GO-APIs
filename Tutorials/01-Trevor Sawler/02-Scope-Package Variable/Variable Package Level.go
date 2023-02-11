@@ -3,7 +3,7 @@
 package main
 
 import (
-	// "acronproject/sina"
+	"acronproject/sina"
 )
 
 // declare a package level variable for the main
@@ -12,7 +12,7 @@ var myVar = "Package level variable"
 
 func main() {
 	// variables
-	// var blockVar = "block level variable"
+	var blockVar = "block level variable"
 	// declare a block variable for the main function
 	// called blockVar
 
