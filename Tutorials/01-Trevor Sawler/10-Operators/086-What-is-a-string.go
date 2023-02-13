@@ -16,4 +16,12 @@ func main() {
 		fmt.Println(x, "\t", y, "\t", string(y))
 	}
 
+	name = "δικο τους"
+	fmt.Println("----------------------")
+	fmt.Println("Index\tRune\tString")
+	fmt.Println("-----\t----\t------")
+	for x, y := range name {
+		fmt.Println(x, "\t", y, "\t", string(y))
+	}
+
 }
