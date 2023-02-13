@@ -98,6 +98,16 @@ func NumberOfTimesPlayed(number int) {
 		fmt.Println("")
 		fmt.Println("")
 		fmt.Println("")
+	}else if playerScore == computerScore {
+		animation.ClearSceenTerminal()
+		fmt.Println("")
+		fmt.Println("")
+		fmt.Println("===================================")
+		fmt.Printf("  The game equalised: %d score \n", computerScore)
+		fmt.Println("===================================")
+		fmt.Println("")
+		fmt.Println("")
+		fmt.Println("")
 	}
 }
 
