@@ -33,12 +33,22 @@ This is my only advice to you dear ones.
 
 حالا در مسیر اول اوبونتو بروید:
 Now go to the first path of Ubuntu:
-
 like this:
 UserName@HostName:~/go/bin$
-
 OR:
 sina-lalebakhsh@sinalalebakhsh:~/go/bin$
 
 
 این دستور را بزنید تا برنامه آموزشی گو فعال بشود
+Type this command to activate the Go training program:
+./tour
+
+
+بعدش یک صفحه مرورگر باز میشه که آدرسش روی کامپیوتر خودت باز شده
+After that, a browser page will open with the address on your computer
+
+در تصویر کنار همین فایل مشاهده کن که آدرسش روی کامپیوتر هست
+In the picture next to this file, see that its address is on the computer
+
+تا اینجا اگه همه چیز درست انجام شده باشه ، مرورگر باز می شه و میتونیم با هم آموزش رو ادامه بدیم.
+So far, if everything is done correctly, the browser will open and we can continue the training together.
