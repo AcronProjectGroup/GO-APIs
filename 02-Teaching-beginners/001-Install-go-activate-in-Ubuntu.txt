@@ -1,0 +1,2 @@
+سلام به دوستان اینجا میخوام تجربیات خودم رو با شما به اشتراک بزارم و زبان گو رو از ابتدا با هم یاد بگیریم
+Hello friends, here I want to share my experiences with you and learn the Go language from the beginning together
