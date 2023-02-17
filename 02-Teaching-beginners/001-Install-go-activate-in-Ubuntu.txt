@@ -52,3 +52,16 @@ In the picture next to this file, see that its address is on the computer
 
 تا اینجا اگه همه چیز درست انجام شده باشه ، مرورگر باز می شه و میتونیم با هم آموزش رو ادامه بدیم.
 So far, if everything is done correctly, the browser will open and we can continue the training together.
+
+
+در پایین صفحه روی گزینه بعدی بزنید یا لینک زیر رو کلیک کن
+Click on the next option at the bottom of the page or click the link below:
+http://127.0.0.1:3999/welcome/2
+
+همه زبان ها هست، غیر از فارسی  پس بهتره یه مفدار انگلیسی مونو قوی کنیم  :))))
+It is in all languages, except Farsi, so it is better to strengthen our English language :))))
+
+
+پایین صفحه روی بعدی بزن یا لینک زیر رو کلیک کن:
+Click on the next option at the bottom of the page or click the link below:
+http://127.0.0.1:3999/welcome/3
