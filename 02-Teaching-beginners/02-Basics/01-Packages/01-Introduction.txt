@@ -1,0 +1,23 @@
+
+Packages
+Every Go program is made up of packages.
+Programs start running in package main.
+(In other words, if a program is still in components, but this package is closed, the program will be closed completely and will not work)
+
+پکیج
+تمام برنامه های گو، با پکیج ها ساخته میشن.
+تمام برنامه ها از پکیج
+main
+شروع می شن
+(به بیان دیگه اگه یک برنامه هنوز در حال اجزا باشه ولی این پکیج بسته بشه اون برنامه کلا بسته میشه و به نتیجه نمیرسه)
+
+|----------------------------------------------------------------------------------------------------
+
+
+(This helps a lot to isolate the programs so that the program is not in the operating system.
+For example, in Python, we must first create an isolated environment so that packages with the same name and different versions do not mix together.
+Of course, to understand this part, you need to have worked with Python for at least 3 to 6 months.)
+
+(این برای ایزوله بودن برنامه ها خیلی کمک میکنه که برنامه تووی سیستم عامل پخش نباشه.
+مثلا تووی پایتون اول باید یک محیط ایزوله بسازیم تا پکیج ها با نام مشابه و ورژن های متفاوت با هم ترکیب نشن.
+البته برای متوجه شدن این قسمت لازمه حداقل ۳ تا ۶ ماه با پایتون کار کرده باشید.)
