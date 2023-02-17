@@ -4,3 +4,26 @@ Hello friends, here I want to share my experiences with you and learn the Go lan
 ابتدا از این آدرس گو رو دانلود کنید، فقط ایران تحریم شده ابتدا لازمه وی‌پی‌ان‌ رو روشن کنید:
 First, download Go from this address, only Iran is banned, first turn on the VPN requirement:
 
+The Link for Install
+https://go.dev/tour/welcome/3
+
+The Command for Install in Terminal write it:
+go install golang.org/x/website/tour@latest
+
+|--------------------------------------- Just One Advice to another languages --------------|
+قبل از ادامه‌ی ‌آموزش ،
+این مورد رو توضیح می دم،
+چون بیشتر منابع این زبان انگلیسی هست،
+اگر زبانی غیر از انگلیسی،
+زبان مادری شما هست ،
+بهتر از که زبان انگلیسی را به مرور یادبگیرید.
+این تنها توصیه من به شما عزیزان هست. 
+Before continuing the training,
+I will explain this matter,
+because most of the sources of this language are in English,
+if a language other than English is your mother tongue,
+it is better to learn English language gradually.
+This is my only advice to you dear ones.
+|---------------------------------------------- Good Luck -----------------------------------|
+
+
