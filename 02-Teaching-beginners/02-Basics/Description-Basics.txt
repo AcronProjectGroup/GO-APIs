@@ -1,0 +1,18 @@
+Basics
+The starting point, learn all the basics of the language.
+Declaring variables, calling functions, and all the things you need to know before moving to the next lessons.
+
+-----
+The word "Declaring" is a bit intangible for me, but maybe "definition" can be used instead of this word.
+Variable definition, function call.
+-----
+
+مبانی
+نقطه شروع، یادگیری تمام اصول اولیه زبان است.
+اعلان متغیرها، فراخوانی توابع و همه چیزهایی که باید قبل از رفتن به درس های بعدی بدانید.
+
+
+------
+کلمه ی "اعلان" برای من یه مقدار ناملموس هست با جای این کلمه شاید بشه از "تعریف" استفاده کرد.
+تعریف متغیر، فراخوانی تابع.
+-----
