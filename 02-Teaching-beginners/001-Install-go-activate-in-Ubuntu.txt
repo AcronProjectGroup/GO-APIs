@@ -1,2 +1,6 @@
 سلام به دوستان اینجا میخوام تجربیات خودم رو با شما به اشتراک بزارم و زبان گو رو از ابتدا با هم یاد بگیریم
 Hello friends, here I want to share my experiences with you and learn the Go language from the beginning together
+
+ابتدا از این آدرس گو رو دانلود کنید، فقط ایران تحریم شده ابتدا لازمه وی‌پی‌ان‌ رو روشن کنید:
+First, download Go from this address, only Iran is banned, first turn on the VPN requirement:
+
