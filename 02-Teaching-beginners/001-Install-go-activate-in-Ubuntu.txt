@@ -8,7 +8,11 @@ The Link for Install
 https://go.dev/tour/welcome/3
 
 The Command for Install in Terminal write it:
-go install golang.org/x/website/tour@latest
+    go install golang.org/x/website/tour@latest
+
+    **********************  توجه کنید برای من خیلی طول کشید تا دانلود بشه ************************
+    ********************** Note that it took me a long time to download   ************************    
+
 
 |--------------------------------------- Just One Advice to another languages --------------|
 قبل از ادامه‌ی ‌آموزش ،
@@ -27,3 +31,14 @@ This is my only advice to you dear ones.
 |---------------------------------------------- Good Luck -----------------------------------|
 
 
+حالا در مسیر اول اوبونتو بروید:
+Now go to the first path of Ubuntu:
+
+like this:
+UserName@HostName:~/go/bin$
+
+OR:
+sina-lalebakhsh@sinalalebakhsh:~/go/bin$
+
+
+این دستور را بزنید تا برنامه آموزشی گو فعال بشود
