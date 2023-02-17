@@ -1,0 +1,21 @@
+Exported names
+
+In Go, a name is exported if it begins with a capital letter. 
+For example, Pizza is an exported name, as is Pi, which is exported from the math package.
+pizza and pi do not start with a capital letter, so they are not exported.
+When importing a package, you can refer only to its exported names.
+Any "unexported" names are not accessible from outside the package.
+Run the code. Notice the error message.
+To fix the error, rename math.pi to math.Pi and try it again.
+
+
+
+اسامی صادر شده
+
+در 'گو' نامی  صادر می شود که با حرف بزرگ شروع شود.
+به عنوان مثال، پیتزا یک نام صادراتی است، مانند عدد پی که از بسته ریاضی صادر می شود.
+پیتزا و پی با حرف بزرگ شروع نمی شوند، بنابراین صادر نمی شوند.
+هنگام وارد کردن بسته، فقط می توانید به نام های صادر شده آن مراجعه کنید.
+هر نام "صادرات نشده" از خارج از بسته قابل دسترسی نیست.
+کد را اجرا کنید. به پیام خطا توجه کنید.
+برای رفع خطا، نام math.pi را به math.Pi تغییر دهید و دوباره آن را امتحان کنید.
