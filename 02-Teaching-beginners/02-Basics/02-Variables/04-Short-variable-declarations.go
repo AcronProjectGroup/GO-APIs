@@ -15,12 +15,12 @@ output:
 
 
 // BUT-----------------------------------
-var i, j int = 1, 2
-k := 3
-func main() {
-	c, python, java := true, false, "no!"
-	fmt.Println(i, j, k, c, python, java)
-}
+	// var i, j int = 1, 2
+	// k := 3
+	// func main() {
+	// 	c, python, java := true, false, "no!"
+	// 	fmt.Println(i, j, k, c, python, java)
+	// }
 /*
 output:
 # example
