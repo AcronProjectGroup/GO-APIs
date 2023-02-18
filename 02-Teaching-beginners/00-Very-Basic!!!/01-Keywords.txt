@@ -1,0 +1,43 @@
+Source: https://www.geeksforgeeks.org/go-keywords/
+
+Go Keywords:
+----------------------------------------------------------------------------------
+
+Keywords or Reserved words are the words in a language that are used for some internal process 
+or represent some predefined actions. These words are therefore not allowed to use as an identifier. 
+Doing this will result in a compile-time error.
+
+Example:
+// Go program to illustrate the
+// use of keywords
+package main
+import "fmt"
+  
+// Here, package, import, func,
+// var are keywords
+func main() {
+  
+// Here, a is a valid identifier
+var a = "GeeksforGeeks" 
+  
+fmt.Println(a)
+  
+// Here, the default is an
+// illegal identifier and
+// compiler will throw an error
+// var default = "GFG"
+}
+
+Output:
+
+GeeksforGeeks
+
+There are total 25 keywords present in the Go language as follows:
+
+break         case        chan        const           continue
+default       defer       else        fallthrough     for     
+func          go          goto        if              import  
+interface     map         package     range           return
+select        struct      switch      type            var
+
+----------------------------------------------------------------------------------

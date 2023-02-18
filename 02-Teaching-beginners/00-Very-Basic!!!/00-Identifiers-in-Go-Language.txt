@@ -1,5 +1,4 @@
-source:
-https://www.geeksforgeeks.org/identifiers-in-go-language/?ref=rp
+source:  https://www.geeksforgeeks.org/identifiers-in-go-language/?ref=rp
 
 Identifiers in Go Language
 ----------------------------------------------------------------------------------
