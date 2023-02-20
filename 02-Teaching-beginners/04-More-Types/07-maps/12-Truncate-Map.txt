@@ -1,0 +1,3 @@
+Truncate Map
+
+There are two methods to clear all items from a Map.
