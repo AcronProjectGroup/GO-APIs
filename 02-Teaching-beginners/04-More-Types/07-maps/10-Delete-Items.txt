@@ -1,0 +1,3 @@
+Delete Items
+
+The built-in delete function deletes an item from a given map associated with the provided key.
