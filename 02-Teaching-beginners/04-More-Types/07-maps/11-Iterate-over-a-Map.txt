@@ -1,0 +1,3 @@
+Iterate over a Map
+
+The for…range loop statement can be used to fetch the index and element of a map.
