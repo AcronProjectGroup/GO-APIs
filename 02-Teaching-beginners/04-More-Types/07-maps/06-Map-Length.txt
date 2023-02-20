@@ -1,0 +1,6 @@
+
+Map Length
+
+To determine how many items (key-value pairs) a map has, use built-in len() function.
+
+The len() function will return zero for an uninitialized map.
