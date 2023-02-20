@@ -1,0 +1,3 @@
+Accessing Items
+
+You can access the items of a map by referring to its key name, inside square brackets.
