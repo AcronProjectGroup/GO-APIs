@@ -1,0 +1,15 @@
+Source : https://www.golangprograms.com/go-language/golang-maps.html
+
+n this tutorial you will learn what is a map data type and when to use it in Golang.
+
+A map is a data structure that provides you with an unordered collection of key/value pairs 
+(maps are also sometimes called associative arrays in Php, hash tables in Java, or dictionaries in Python). 
+Maps are used to look up a value by its associated key. You store values into the map based on a key.
+
+The strength of a map is its ability to retrieve data quickly based on the key. 
+A key works like an index, pointing to the value you associate with that key.
+
+A map is implemented using a hash table, 
+which is providing faster lookups on the data element and you can easily retrieve a value by providing the key. 
+Maps are unordered collections, and there's no way to predict the order in which the key/value pairs will be returned. 
+Every iteration over a map could return a different order.
