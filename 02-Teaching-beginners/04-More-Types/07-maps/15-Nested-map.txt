@@ -1,0 +1,37 @@
+Source: https://linuxhint.com/golang-map-of-maps/
+
+
+What Is Nested Map?
+
+A nested map is simply a map of maps. 
+This means that the key-value pairs of the outer map are another map.
+
+
+Golang Create Nested Map
+
+We can define a nested map the same way we declare a normal map. 
+We start by setting the data type of the key (top-level map) and the type of the value. 
+Since this is a nested map, the value of the top-level map is a map.
+
+An example code is as shown below:
+
+package main
+func main() {
+    nested := map[int]map[string]string{
+        1: {
+            "a": "Apple",
+            "b": "Banana",
+            "c": "Coconut",
+        },
+        2: {
+            "a": "Tea",
+            "b": "Coffee",
+            "c": "Milk",
+        },
+        3: {
+            "a": "Italian Food",
+            "b": "Indian Food",
+            "c": "Chinese Food",
+        },
+    }
+}
