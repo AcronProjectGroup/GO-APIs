@@ -1,0 +1,7 @@
+To iterate over an individual map, we can access it using its key. 
+
+For example, to iterate over the first nested map (key 1),
+
+for k, v := range nested[1] {
+    fmt.Println(k, v)
+}
