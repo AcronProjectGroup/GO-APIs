@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 )
 
 
@@ -26,7 +27,8 @@ func main() {
         },
     }
 
-	fmt.Println(nested)
+	// Diagnosis Type = Output:   map
+	fmt.Println(reflect.ValueOf(nested).Kind())
 }
 
 
