@@ -1,0 +1,11 @@
+Source: https://www.golangprograms.com/go-language/variables.html
+
+
+Declaration with type inference
+
+You can omit the variable type from the declaration, 
+when you are assigning a value to a variable at the time of declaration. 
+The type of the value assigned to the variable will be used as the type of that variable.
+
+
+
