@@ -1,0 +1,7 @@
+Source: https://www.golangprograms.com/go-language.html
+
+Steep Learning Curve: 
+
+Go has a relatively straightforward syntax, 
+but it does require some knowledge of low-level programming concepts such as pointers and memory management. 
+This can make it more challenging for beginners to learn compared to some other programming languages.
