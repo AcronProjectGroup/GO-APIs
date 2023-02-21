@@ -1,0 +1,6 @@
+Source: https://linuxhint.com/golang-map-of-maps/
+
+
+Golang Delete Nested Map
+
+We can also delete a key-value pair from a nested map using the delete method. 
