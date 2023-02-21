@@ -1,0 +1,6 @@
+Initializing an Array with an Array Literal
+
+You can initialize an array with pre-defined values using an array literal. 
+An array literal have the number of elements it will hold in square brackets, 
+followed by the type of its elements. 
+This is followed by a list of initial values separated by commas of each element inside the curly braces.
