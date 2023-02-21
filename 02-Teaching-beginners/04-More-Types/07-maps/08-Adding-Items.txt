@@ -1,3 +1,5 @@
+Source: https://www.golangprograms.com/go-language/golang-maps.html
+
 Adding Items
 
 Adding an item to the map is done by using a new index key and assigning a value to it.

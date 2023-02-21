@@ -1,0 +1,5 @@
+Source: https://www.golangprograms.com/go-language/golang-maps.html
+
+Sort Map Values
+
+To sort the key values of a map, you need to store them in Slice and then sort the slice.
