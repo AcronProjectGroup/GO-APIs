@@ -1,0 +1,4 @@
+Assign and Access Values
+
+You access or assign the array elements by referring to the index number. 
+The index is specified in square brackets.
