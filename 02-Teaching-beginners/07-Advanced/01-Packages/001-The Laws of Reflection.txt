@@ -1,0 +1,50 @@
+
+The first law of reflection
+1. Reflection goes from interface value to reflection object.
+
+At the basic level, reflection is just a mechanism to examine the type and value pair stored inside an interface variable. To get started, there are two types we need to know about in package reflect: Type and Value. Those two types give access to the contents of an interface variable, and two simple functions, called reflect.TypeOf and reflect.ValueOf, retrieve reflect.Type and reflect.Value pieces out of an interface value. (Also, from a reflect.Value it’s easy to get to the corresponding reflect.Type, but let’s keep the Value and Type concepts separate for now.)
+
+Let’s start with TypeOf:
+
+package main
+
+import (
+    "fmt"
+    "reflect"
+)
+
+func main() {
+    var x float64 = 3.4
+    fmt.Println("type:", reflect.TypeOf(x))
+}
+
+This program prints
+
+type: float64
+
+|---------------------------------------------------------------------------------------------
+|---------------------------------------------------------------------------------------------
+
+
+pe and reflect.Value have lots of methods to let us examine and manipulate them. 
+One important example is that Value has a Type method that returns the Type of a reflect.Value. 
+Another is that both Type and Value have a Kind method that returns a constant indicating what sort of item 
+is stored: Uint, Float64, Slice, and so on. 
+
+Also methods on Value with names like Int 
+and Float let us grab values (as int64 and float64) stored inside:
+
+var x float64 = 3.4
+v := reflect.ValueOf(x)
+fmt.Println("type:", v.Type())
+fmt.Println("kind is float64:", v.Kind() == reflect.Float64)
+fmt.Println("value:", v.Float())
+
+prints
+
+type: float64
+kind is float64: true
+value: 3.4
+
+|---------------------------------------------------------------------------------------------
+|---------------------------------------------------------------------------------------------
