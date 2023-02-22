@@ -1,0 +1,38 @@
+// Source: https://www.golangprograms.com/golang/methods-interfaces-objects/
+
+Methods and Objects
+Go methods
+
+A method is defined just like any other Go function. 
+When a Go function is defined with a limited scope or attached with a specific type it is known as a method. 
+Methods provide a way to add behavior to user-defined types. 
+Methods are really functions that contain an extra parameter that's declared between the keyword func 
+and the function name.
+
+In Go a method is a special kind of function that acts on variable of a certain type, called the receiver, 
+which is an extra parameter placed before the method's name, 
+used to specify the moderator type to which the method is attached. 
+The receiver type can be anything, not only a struct type: any type can have methods, 
+even a function type or alias types for int, bool, string or array.
+
+The general format of a method is:
+func (recv receiver_type) methodName(parameter_list) (return_value_list) { … }
+The receiver is specified in ( ) before the method name after the func keyword. 
+
+روش ها و اشیاء
+روش های برو
+
+یک متد درست مانند هر تابع Go دیگر تعریف می شود.
+هنگامی که یک تابع Go با یک محدوده محدود تعریف می شود یا با یک نوع خاص متصل می شود، به عنوان یک متد شناخته می شود.
+روش ها راهی برای افزودن رفتار به انواع تعریف شده توسط کاربر ارائه می دهند.
+متدها در واقع توابعی هستند که حاوی یک پارامتر اضافی هستند که بین کلمه کلیدی func و نام تابع اعلام شده است.
+
+در Go یک متد نوع خاصی از تابع است که بر روی متغیری از نوع خاصی عمل می کند که گیرنده نامیده می شود،
+ که یک پارامتر اضافی است که قبل از نام متد قرار می گیرد
+و برای تعیین نوع تعدیل کننده ای که متد به آن متصل است استفاده می شود.
+نوع گیرنده می تواند هر چیزی باشد، نه تنها یک نوع ساختار:
+هر نوع می تواند متدهایی داشته باشد، حتی یک نوع تابع یا انواع مستعار برای int، bool، رشته یا آرایه.
+
+فرمت کلی یک روش به صورت زیر است:
+روش func (نوع_گیرنده recv)Name(parameter_list) (return_value_list) { … }
+گیرنده در ( ) قبل از نام روش بعد از کلمه کلیدی func مشخص شده است.
