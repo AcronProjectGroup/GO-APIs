@@ -1,0 +1,17 @@
+// Source: https://www.digitalocean.com/community/tutorials/defining-methods-in-go
+
+Introduction
+
+Functions allow you to organize logic into repeatable procedures that can use different arguments each time they run. 
+In the course of defining functions, 
+you’ll often find that multiple functions might operate on the same piece of data each time. 
+Go recognizes this pattern and allows you to define special functions, called methods, 
+whose purpose is to operate on instances of some specific type, called a receiver. 
+Adding methods to types allows you to communicate not only what the data is, but also how that data should be used.
+Defining a Method
+
+The syntax for defining a method is similar to the syntax for defining a function. 
+The only difference is the addition of an extra parameter after the func keyword 
+for specifying the receiver of the method. 
+The receiver is a declaration of the type that you wish to define the method on. 
+The following example defines a method on a struct type:
