@@ -1,0 +1,82 @@
+Source:  https://articles.wesionary.team/map-vs-struct-in-golang-when-to-use-b0b66446627a
+
+
+
+Map vs Struct in GOlang (When to use)
+Struct
+
+Struct is short form of structure . 
+It is a collection of different properties that are related together. 
+In Golang we can declare and create our own data types by combining two or more different types. 
+So each data field in a struct is declared with its type, which can be built in type or user-defined.
+Creating a Struct
+
+type Person struct {
+ name    string
+ address string
+}
+
+Adding value to struct
+
+person1 := Person{"Bibek", "Nepal"}
+
+Accessing value from struct
+
+fmt.Println(person1.name)
+fmt.Println(person1.address)
+
+Link for example
+Map
+
+Maps are Golang build-in associative data type. 
+Map is a collection of key value pair. Both key and value are statically typed. 
+It is widely used because it provides fast lookup and values that can retrieve, 
+update or delete with the help of keys.
+Creating a Map
+
+var colors map[string]string;Or,m := make(map[string]string)
+
+Adding a value to a Map
+
+colors := map[string]string{
+  "red":   "#ff0000",
+  "green": "#00ff00",
+  "blue":  "#0000ff",
+ }
+
+Accessing value
+
+fmt.Println(colors["red"])
+fmt.Println(colors["green"])
+
+Delete value
+
+delete(colors,”red”)
+
+Link for example
+Maps vs. Structs
+
+For map:
+- All key and value are of same type.
+- When keys are indexed and we can iterate over them.
+- Closely related and significant value type.
+- Don’t need to know all the keys at compile time.
+- Key are indexed- we can iterate over them.
+- Reference type
+
+For struct:
+- All values can be of different type.
+- Need to know all the different fields at compile time.
+- Keys don’t support indexing
+- Value type.
+When to use?
+
+When to use structs? If we have close set of keys means the fixed data size with keys we will be using structs. 
+Using structs are safe way and easy way while working with JSON data also.
+
+When to use maps? If we are creating some kind of relationship between keys and values 
+and we don’t really know what that collection of values going to be at compile time 
+or as we are writing our code then we got the great use-case of using a map.
+
+Most of cases, vast majority of time we mostly, use structs than maps. 
+But it all depends on nature and type of the application and requirement of the project.
