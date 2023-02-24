@@ -1,0 +1,1 @@
+what exactly differnece between fmt.Scan and bufio ?
