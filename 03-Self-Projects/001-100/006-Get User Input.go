@@ -18,8 +18,10 @@ func main() {
 
 	fmt.Scan(&getUserInput)
 
-	fmt.Println(string(getUserInput[0]))
-	fmt.Println(getUserInput[0])
+	if string(getUserInput[0:5]) == "lower" {
+		fmt.Println("First user = lower")
+	}
+	
 
 }
 
