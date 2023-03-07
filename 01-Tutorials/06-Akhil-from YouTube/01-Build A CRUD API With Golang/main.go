@@ -24,30 +24,33 @@ type Director struct {
 
 var movies []Movie
 
+func getMovies(w http.ResponseWriter, r http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(movies)
+}
+
 func main() {
 	r := mux.NewRouter()
 
 	movies = append(movies, Movie{
-		ID: "1",
-		Isbn: "438227",
+		ID:    "1",
+		Isbn:  "438227",
 		Title: "Movie One",
 		Director: &Director{
 			Firstname: "Sina",
-			Lastname: "Lale Bakhsh",
+			Lastname:  "Lale Bakhsh",
 		},
 	})
 
-
 	movies = append(movies, Movie{
-		ID: "2",
-		Isbn: "45455",
+		ID:    "2",
+		Isbn:  "45455",
 		Title: "Movie Two",
 		Director: &Director{
 			Firstname: "Mina",
-			Lastname: "Sadr",
+			Lastname:  "Sadr",
 		},
 	})
-
 
 	r.HandleFunc("/movies", getMovies).Methods("GET")
 	r.HandleFunc("/movies/{id}", getMovie).Methods("GET")
