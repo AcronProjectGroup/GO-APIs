@@ -24,7 +24,7 @@ type Director struct {
 
 var movies []Movie
 
-func getMovies(w http.ResponseWriter, r http.Request) {
+func getMovies(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(movies)
 }
@@ -50,6 +50,11 @@ func getMovie(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
+	json.NewEncoder(w).Encode(movies)
+}
+
+func createMovie(w http.ResponseWriter, r *http.Request) {
+
 }
 
 func main() {
