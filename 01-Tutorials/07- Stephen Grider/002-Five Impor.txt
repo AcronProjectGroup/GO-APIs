@@ -1,0 +1,10 @@
+Source: Udemy tutorial from Stephen Grider
+
+Five Important Questions
+
+    2- What does `package main` mean?
+
+        if renamed file no matter
+
+        But if change name package inside that + go build = is not work it because don't fond it
+        
