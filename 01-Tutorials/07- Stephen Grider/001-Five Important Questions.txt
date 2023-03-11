@@ -69,7 +69,11 @@ Five Important Questions
 -------------------------------------------------------------------------------------------------
         Go CLI command definition:
 
-        go build  ->  Compliles a bunch of go source code files
+        go build  ->  
+            Just compile without run
+
+            Compliles a bunch of go source code files
+
 
         go run    ->  Compiles and executes one or more files 
 
