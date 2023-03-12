@@ -1,0 +1,12 @@
+Source: Udemy tutorial from Stephen Grider
+
+Five Important Questions
+
+    3- What does (import "fmt") mean ?
+
+        In Go language by default is fmt package and anothers ...
+
+        for more learn standard library:
+            https://pkg.go.dev/std
+
+        
