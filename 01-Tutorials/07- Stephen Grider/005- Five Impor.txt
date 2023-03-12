@@ -3,7 +3,7 @@ Source: Udemy tutorial from Stephen Grider
 Five Important Questions
 
 
-    4- What's that func thing ?
+    5- How is the main.go file organized ?
 
 
         
