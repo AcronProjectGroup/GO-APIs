@@ -1,0 +1,25 @@
+Source: Udemy tutorial from Stephen Grider
+
+
+
+1- Create a directory
+2- Create main.go                  inside of terminal -> go mod init nameMaduleRoot
+3- Define Package main
+4- Define main function
+-------------------------
+5- Create new variable 
+6- Speak about Dynamic & Static Types 
+7- Dynamic type we have permission for change it. 
+8- Static type we don't have it.
+9- Basic Go Types 
+
+    bool    -> true       OR  false 
+    
+    string  -> "Hi"       OR  "How are you??"
+    
+    int     -> -10000     OR  0  OR 9999
+
+    float64 -> 10.0000001 OR  0.000009 OR  -100.003
+
+    card := "How are you?"
+    card = "What is your name?"
