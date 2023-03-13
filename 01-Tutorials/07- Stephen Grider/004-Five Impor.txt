@@ -6,5 +6,23 @@ Five Important Questions
     4- What's that func thing ?
 
 
-        
 
+        Keyword     Name            inside function  
+        ------      ----             ---------
+        func        masalanprint()      {...}
+        
+        example:
+        --------
+        func masalanprint() {
+            fmt.Println("masalan print injast !!!!")
+        }
+
+
+
+        for future:
+
+        func  masalanprint(voroodi) (khorooji int) {...}
+
+        for advanced:
+
+        func methods  masalanprint()  (khorooji int)  {...}
