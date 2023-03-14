@@ -20,9 +20,7 @@ Five Important Questions
 
 
         for future:
-
-        func  masalanprint(voroodi) (khorooji int) {...}
+        func  masalanprint(voroodi) (khorooji1, khorooji2 int) {...}
 
         for advanced:
-
-        func methods  masalanprint()  (khorooji int)  {...}
+        func methods  masalanprint()  (khorooji1, khorooji2 int)  {...}
