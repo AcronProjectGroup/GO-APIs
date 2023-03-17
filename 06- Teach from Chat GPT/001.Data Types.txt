@@ -4,3 +4,110 @@ This is Result of my Conversation with Chat GPT:
 
 https://sinalalenakhsh.notion.site/1-Data-Types-1a698b9431994c5aacf080111eb24e06
 
+# 1- Data Types
+
+teach me about Data Types in Golang for each one of them take 3 simple examples
+
+Sure! In Golang, there are several built-in data types that you can use to represent different kinds of values. Here are some examples of the most commonly used data types in Golang:
+
+1. Integers: Integers are whole numbers with no fractional component. In Golang, you can declare integers using the `int` keyword. Here are some examples:
+
+```go
+var age int = 27
+var temperature int = -10
+var count int = 1000
+
+```
+
+1. Floats: Floats are numbers that have a fractional component. In Golang, you can declare floats using the `float64` keyword. Here are some examples:
+
+```go
+var pi float64 = 3.14159
+var temperature float64 = -5.5
+var salary float64 = 2500.50
+
+```
+
+1. Strings: Strings are sequences of characters. In Golang, you can declare strings using the `string` keyword. Here are some examples:
+
+```
+var name string = "John Doe"
+var message string = "Hello, world!"
+var email string = "john.doe@example.com"
+
+```
+
+1. Booleans: Booleans are values that can be either `true` or `false`. In Golang, you can declare booleans using the `bool` keyword. Here are some examples:
+
+```
+var isHungry bool = true
+var isLoggedIn bool = false
+var isActive bool = true
+
+```
+
+1. Arrays: Arrays are collections of values that have the same data type. In Golang, you can declare arrays using the `[]` syntax. Here are some examples:
+
+```
+var numbers [3]int = [3]int{1, 2, 3}
+var fruits [2]string = [2]string{"apple", "banana"}
+var temperatures [5]float64 = [5]float64{10.5, 20.5, 30.5, 40.5, 50.5}
+
+```
+
+1. Slices: Slices are similar to arrays, but they are more flexible and can change in size. In Golang, you can declare slices using the `[]` syntax without specifying the length. Here are some examples:
+
+```
+var numbers []int = []int{1, 2, 3}
+var fruits []string = []string{"apple", "banana"}
+var temperatures []float64 = []float64{10.5, 20.5, 30.5, 40.5, 50.5}
+
+```
+
+1. Maps: Maps are collections of key-value pairs. In Golang, you can declare maps using the `map` keyword. Here are some examples:
+
+```
+var person map[string]string = map[string]string{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+}
+var temperatures map[string]float64 = map[string]float64{
+    "New York": 10.5,
+    "London": 15.5,
+    "Paris": 20.5,
+}
+var colors map[int]string = map[int]string{
+    1: "red",
+    2: "green",
+    3: "blue",
+}
+
+```
+
+These are just a few examples of the data types in Golang. There are many other data types available, including structs, pointers, and interfaces, which you can learn about as you continue to work with the language.
+
+
+what is Data Types in Golang, just tell me names
+
+In Golang, data types are used to define the type of data that a variable can store. Here are the basic data types that Golang supports:
+
+    bool: represents a boolean value (true or false)
+    int: represents integer values (e.g., 10, -20, 0)
+    int8: represents 8-bit integer values (range: -128 to 127)
+    int16: represents 16-bit integer values (range: -32768 to 32767)
+    int32: represents 32-bit integer values (range: -2147483648 to 2147483647)
+    int64: represents 64-bit integer values (range: -9223372036854775808 to 9223372036854775807)
+    uint: represents unsigned integer values (e.g., 10, 20, 0)
+    uint8: represents 8-bit unsigned integer values (range: 0 to 255)
+    uint16: represents 16-bit unsigned integer values (range: 0 to 65535)
+    uint32: represents 32-bit unsigned integer values (range: 0 to 4294967295)
+    uint64: represents 64-bit unsigned integer values (range: 0 to 18446744073709551615)
+    float32: represents 32-bit floating point values
+    float64: represents 64-bit floating point values
+    complex64: represents complex numbers with float32 real and imaginary parts
+    complex128: represents complex numbers with float64 real and imaginary parts
+    byte: alias for uint8
+    rune: alias for int32
+    string: represents a sequence of characters
+
+These are the basic data types in Golang, and you can use them to define variables that store different types of data.
