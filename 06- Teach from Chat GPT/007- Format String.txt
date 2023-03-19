@@ -1,0 +1,74 @@
+Sorce Notion:
+https://sinalalenakhsh.notion.site/5-format-string-in-Golang-17410c17fefe46e589c59c2fa1b93efb
+
+
+# 5- format string in Golang
+
+teach string formatting in Golang
+
+In Golang, string formatting is typically done using the `fmt` package, which provides a wide range of formatting options for different types of data. The basic syntax for string formatting in Golang is:
+
+```
+fmt.Printf(format string, a ...interface{})
+```
+
+where `format` is a string containing the text to be printed, and `a` is a variadic argument that represents a list of values to be printed. The `Printf` function takes care of converting the arguments to their appropriate types and inserting them into the string at the appropriate locations.
+
+Here are some common formatting options:
+
+1. `%d` - integer formatting
+2. `%f` - floating point formatting
+3. `%s` - string formatting
+4. `%t` - boolean formatting
+5. `%v` - default formatting for the given value
+6. `%q` - double-quoted string
+7. `%p` - pointer address formatting
+8. `%x`, `%X` - hexadecimal formatting
+
+For example, to print an integer and a string, you could use the following code:
+
+```
+package main
+
+import "fmt"
+
+func main() {
+    var x int = 42
+    var s string = "hello"
+
+    fmt.Printf("x = %d, s = %s\n", x, s)
+}
+```
+
+This would output:
+
+```
+x = 42, s = hello
+```
+
+You can also specify width and precision for the output using the format string. For example:
+
+```
+package main
+
+import "fmt"
+
+func main() {
+    var pi float64 = 3.14159265358979323846
+
+    fmt.Printf("%.2f\n", pi)
+}
+```
+
+This would output:
+
+```
+3.14
+```
+
+In this example, `.2` specifies the precision (the number of decimal places to display) and `f` indicates the format for a floating point value.
+
+Overall, the `fmt` package provides a wide range of options for formatting strings in Golang, making it easy to customize the output for different types of data.
+
+
+
