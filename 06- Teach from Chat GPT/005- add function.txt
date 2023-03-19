@@ -1,0 +1,5 @@
+Source :
+https://sinalalenakhsh.notion.site/4-Create-Add-Function-in-Golang-2e27c8ede5a24cd8b996dcb7cb6ddf65
+
+
+create a function and switch case in Golang
