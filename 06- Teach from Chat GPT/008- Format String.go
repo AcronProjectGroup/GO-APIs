@@ -14,7 +14,10 @@ func main() {
     fmt.Printf("Number Value = %d, String Value = %s\n", intMaaa, stringMaa)
 	//------------------------------------------------------
 
-	
+	var piNumber float64 = 3.14159265358979323846
+    fmt.Printf("%.5f \n", piNumber)
+	//------------------------------------------------------
 
+	
 
 }
