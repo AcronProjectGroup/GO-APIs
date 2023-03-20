@@ -1,0 +1,158 @@
+https://sinalalenakhsh.notion.site/5-Every-ways-get-user-input-in-Golang-ac2c758f26b04902b0c706194dc77c68
+
+
+Learn every way for get user input in Golang take three examples for each way
+
+In Go, there are several ways to get user input from the standard input stream. Here are some examples:
+
+1. Using the fmt.Scan function:
+
+```
+package main
+
+import "fmt"
+
+func main() {
+    var name string
+    fmt.Print("Enter your name: ")
+    fmt.Scan(&name)
+    fmt.Printf("Hello, %s!\n", name)
+}
+```
+
+Example input/output:
+
+```
+Enter your name: John
+Hello, John!
+```
+
+1. Using the bufio package:
+
+```
+package main
+
+import (
+    "bufio"
+    "fmt"
+    "os"
+)
+
+func main() {
+    reader := bufio.NewReader(os.Stdin)
+    fmt.Print("Enter your age: ")
+    age, _ := reader.ReadString('\n')
+    fmt.Printf("You are %s years old.\n", age)
+}
+```
+
+Example input/output:
+
+```
+Enter your age: 25
+You are 25
+ years old.
+```
+
+1. Using the os package:
+
+```
+package main
+
+import (
+    "fmt"
+    "os"
+)
+
+func main() {
+    var username string
+    fmt.Print("Enter your username: ")
+    fmt.Fscanf(os.Stdin, "%s", &username)
+    fmt.Printf("Your username is %s.\n", username)
+}
+```
+
+Example input/output:
+
+```
+Enter your username: user123
+Your username is user123.
+```
+
+1. Using the bufio package with a scanner:
+
+```
+package main
+
+import (
+    "bufio"
+    "fmt"
+    "os"
+)
+
+func main() {
+    scanner := bufio.NewScanner(os.Stdin)
+    fmt.Print("Enter your favorite color: ")
+    scanner.Scan()
+    color := scanner.Text()
+    fmt.Printf("Your favorite color is %s.\n", color)
+}
+```
+
+Example input/output:
+
+```
+Enter your favorite color: blue
+Your favorite color is blue.
+```
+
+1. Using the fmt.Scanf function:
+
+```
+package main
+
+import "fmt"
+
+func main() {
+    var number int
+    fmt.Print("Enter a number: ")
+    fmt.Scanf("%d", &number)
+    fmt.Printf("You entered %d.\n", number)
+}
+```
+
+Example input/output:
+
+```
+Enter a number: 42
+You entered 42.
+```
+
+1. Using the os.Args variable:
+
+```
+package main
+
+import (
+    "fmt"
+    "os"
+)
+
+func main() {
+    args := os.Args
+    fmt.Printf("You entered %d arguments.\n", len(args)-1)
+    for i, arg := range args[1:] {
+        fmt.Printf("Argument %d: %s\n", i+1, arg)
+    }
+}
+```
+
+Example input/output:
+
+```
+$ go run main.go arg1 arg2 arg3
+You entered 3 arguments.
+Argument 1: arg1
+Argument 2: arg2
+Argument 3: arg3
+```
