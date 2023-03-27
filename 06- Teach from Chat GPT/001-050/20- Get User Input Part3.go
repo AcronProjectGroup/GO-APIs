@@ -2,7 +2,7 @@
 
 // Notion Source : https://sinalalenakhsh.notion.site/9-every-ways-get-user-input-in-Golang-ac2c758f26b04902b0c706194dc77c68
 
-
+// https://go.dev/doc/
 
 import (
     "bufio"
