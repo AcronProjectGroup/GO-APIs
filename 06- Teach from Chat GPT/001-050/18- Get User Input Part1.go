@@ -1,3 +1,5 @@
+// every ways get user input in Golang
+
 // https://sinalalenakhsh.notion.site/5-Every-ways-get-user-input-in-Golang-ac2c758f26b04902b0c706194dc77c68
 
 
@@ -11,16 +13,15 @@ func main() {
 
 	for {
 		fmt.Println("Enter your name: ")
-		fmt.Print("-> ")
+		// fmt.Print("-> ")
 		fmt.Scan(&name)
 
 		if name == "finish" {
 			break
+		} else {
+			fmt.Printf("Hello, %s!\n", name)
 		}
-
-		fmt.Printf("Hello, %s!\n", name)
 	}
-
 
 }
 
