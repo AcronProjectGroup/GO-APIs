@@ -1,7 +1,7 @@
 /*
-   Notion Source: https://sinalalenakhsh.notion.site/12-First-Project-Job-Offer-d828d312c2e44551bffa7c4c1589979c
-   Notion Source: https://sinalalenakhsh.notion.site/12-First-Project-Job-Offer-d828d312c2e44551bffa7c4c1589979c
+    Important Source : https://sinalalenakhsh.notion.site/1-Chat-GPT-310ba8a7e074493e95d8c45bfe6aed86
 
+   Notion Source: https://sinalalenakhsh.notion.site/12-First-Project-d828d312c2e44551bffa7c4c1589979c
    از کاربر ورودی میگیره
    تحلیل روی اطلاعات کاربر انجام میده
    اگر اطلاعات مطابق نظرش بود
