@@ -1,6 +1,7 @@
 /*
-   Notion Source: https://sinalalenakhsh.notion.site/12-First-Project-d828d312c2e44551bffa7c4c1589979c
-                  https://sinalalenakhsh.notion.site/12-First-Project-d828d312c2e44551bffa7c4c1589979c
+   Notion Source: https://sinalalenakhsh.notion.site/12-First-Project-Job-Offer-d828d312c2e44551bffa7c4c1589979c
+   Notion Source: https://sinalalenakhsh.notion.site/12-First-Project-Job-Offer-d828d312c2e44551bffa7c4c1589979c
+
    از کاربر ورودی میگیره
    تحلیل روی اطلاعات کاربر انجام میده
    اگر اطلاعات مطابق نظرش بود
