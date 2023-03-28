@@ -18,3 +18,17 @@ func main() {
 	fmt.Println(PrintNumber)
 }
 
+// ---------------------------
+// ---------------------------
+
+package main
+
+import (
+	"fmt"
+)
+const Number123 int = 100
+func main() {
+	const Number int = 23
+	fmt.Println(Number)
+	fmt.Println(Number123)
+}
