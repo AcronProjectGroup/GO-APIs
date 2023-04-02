@@ -1,0 +1,11 @@
+
+
+
+
+for find this write in Termianl:
+    go run --work main.go
+
+Output like this:
+    go run --work main.go 
+    WORK=/tmp/go-build1682289309
+
