@@ -1,5 +1,9 @@
 
+https://github.com/karlseguin/the-little-go-book
 
+https://www.openmymind.net/The-Little-Go-Book/
+
+https://www.openmymind.net/assets/go/go.pdf
 
 
 for find this write in Termianl:
