@@ -1,0 +1,20 @@
+1- داستان زمانی شروع میشه که لازمه دو تا خروجی از تابع ریترن بشه
+
+
+2-
+    بیشتر تابع ها در زبان گو دو تا مقدار رو ریترن میکنند
+    In many cases, functions in Go return multiple values, where the last valueis often an error.
+
+3- 
+    میشه این خروجی ها رو دستی اضافه کرد
+
+    1- cd 52-\ What\ is\ nill\ in\ Go\ language/ 
+    2- go mod init whatIs-nil
+    3- touch main.go
+    4- Copy and Paste from PDF file
+    5- cd ..
+    5- go work init 52-\ What\ is\ nill\ in\ Go\ language/
+
+    Result:
+        اگه نیل داخل زبان گو نباشه نمیشه این خروجی ها هندل کرد 
+        یعنی مقدار نیل یک فضای خالی ولی رزو شده ست
