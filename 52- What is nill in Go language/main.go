@@ -13,7 +13,7 @@ func divide(a, b int) (int, error) {
 }
 
 func main() {
-	result, err := divide(8, 0)
+	result, err := divide(8, 2)
 	if err != nil {
 		fmt.Println("Error:", err)
 	} else {
