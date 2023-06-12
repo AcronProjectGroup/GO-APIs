@@ -1,0 +1,15 @@
+
+Why use Loop in Go language ? or any other languages
+
+
+
+1- Suppose you want to get input from the user
+2- Getting an entry is easy
+3- But what to do for many inputs?
+
+            *****************************************************************
+So, one of the most important reasons for using loops is to do repetitive tasks in the program
+            *****************************************************************
+
+
+
