@@ -1,0 +1,24 @@
+Source: https://golangbot.com/channels/
+
+
+Channels can be thought of as pipes using which Goroutines communicate. 
+Similar to how water flows from one end to another in a pipe, 
+data can be sent from one end and received from the other end using channels.
+
+کانال ها را می توان به عنوان لوله هایی در نظر گرفت که با استفاده از آنها گوروتین ها ارتباط برقرار می کنند.
+مشابه نحوه جریان آب از یک سر به سر دیگر در لوله، 
+داده ها را می توان از یک سر ارسال کرد و از انتهای دیگر با استفاده از کانال ها دریافت کرد.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
