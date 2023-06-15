@@ -19,10 +19,10 @@ func main() {
 	// 	total += driving_Exam[i]
 	// }
 
-	for i, value := range driving_Exam {
-		if i > len(driving_Exam) {
-			println(i)
-		}
+	for /* Or i */ _ , value := range driving_Exam {
+		// if i > len(driving_Exam) {
+		// 	println(i)
+		// }
 		total += value
 	}
 
