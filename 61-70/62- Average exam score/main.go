@@ -15,9 +15,17 @@ func main() {
 	fmt.Scan(&driving_Exam[1])
 
 	var total float64 = 0
-	for i := 0; i < 2; i++ {
-		total += driving_Exam[i]
+	// for i := 0; i < len(driving_Exam); i++ {
+	// 	total += driving_Exam[i]
+	// }
+
+	for i, value := range driving_Exam {
+		if i == 10 {
+			println(i)
+		}
+		total += value
 	}
+
 
 	if total / float64(len(driving_Exam)) > 15 {
 		Average_Exam_Score := total / float64(len(driving_Exam))
