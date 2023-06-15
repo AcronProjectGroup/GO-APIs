@@ -20,7 +20,7 @@ func main() {
 	// }
 
 	for i, value := range driving_Exam {
-		if i == 10 {
+		if i > len(driving_Exam) {
 			println(i)
 		}
 		total += value
