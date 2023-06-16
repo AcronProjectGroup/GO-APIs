@@ -1,66 +1,54 @@
+// https://gobyexample.com/signals
+
+
 package main
 
 import (
     "fmt"
-    "time"
+    "os"
+    "os/signal"
+    "syscall"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    sigs := make(chan os.Signal, 1)
 
-    limiter := time.Tick(200 * time.Millisecond)
+    signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
-
-    burstyLimiter := make(chan time.Time, 3)
-
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
+    done := make(chan bool, 1)
 
     go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
+
+        sig := <-sigs
+        fmt.Println()
+        fmt.Println(sig)
+        done <- true
     }()
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    fmt.Println("awaiting signal")
+    <-done
+    fmt.Println("exiting")
 }
 
 
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
+Sometimes we’d like our Go programs to intelligently handle Unix signals. 
+For example, we might want a server to gracefully shutdown when it receives 
+a SIGTERM, or a command-line tool to stop processing input if it receives 
+a SIGINT. Here’s how to handle signals in Go with channels.
 
 
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
+Go signal notification works by sending os.Signal values on a channel. 
+We’ll create a channel to receive these notifications. 
+Note that this channel should be buffered.
 
+
+signal.Notify registers the given channel to receive notifications of the specified signals.
 
 
 */
+
+
+

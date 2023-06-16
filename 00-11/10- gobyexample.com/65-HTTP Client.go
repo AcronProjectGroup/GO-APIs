@@ -1,65 +1,38 @@
+// https://gobyexample.com/http-client
+
 package main
 
 import (
+    "bufio"
     "fmt"
-    "time"
+    "net/http"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
+    resp, err := http.Get("https://gobyexample.com")
+    if err != nil {
+        panic(err)
     }
-    close(requests)
+    defer resp.Body.Close()
 
-    limiter := time.Tick(200 * time.Millisecond)
+    fmt.Println("Response status:", resp.Status)
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
-
-    burstyLimiter := make(chan time.Time, 3)
-
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
+    scanner := bufio.NewScanner(resp.Body)
+    for i := 0; scanner.Scan() && i < 5; i++ {
+        fmt.Println(scanner.Text())
     }
 
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
+    if err := scanner.Err(); err != nil {
+        panic(err)
     }
 }
 
-
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
+The Go standard library comes with excellent support for HTTP clients 
+and servers in the net/http package. 
+In this example we’ll use it to issue simple HTTP requests.
 
 
 

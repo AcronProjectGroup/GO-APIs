@@ -1,66 +1,45 @@
+// https://gobyexample.com/command-line-flags
+
+
 package main
 
 import (
+    "flag"
     "fmt"
-    "time"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    wordPtr := flag.String("word", "foo", "a string")
 
-    limiter := time.Tick(200 * time.Millisecond)
+    numbPtr := flag.Int("numb", 42, "an int")
+    forkPtr := flag.Bool("fork", false, "a bool")
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
+    var svar string
+    flag.StringVar(&svar, "svar", "bar", "a string var")
 
-    burstyLimiter := make(chan time.Time, 3)
+    flag.Parse()
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    fmt.Println("word:", *wordPtr)
+    fmt.Println("numb:", *numbPtr)
+    fmt.Println("fork:", *forkPtr)
+    fmt.Println("svar:", svar)
+    fmt.Println("tail:", flag.Args())
 }
 
-
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
+Command-line flags are a common way to specify options 
+for command-line programs. For example, in wc -l the -l is a command-line flag.
 
 
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
+Command-line flags are a common way to specify options for command-line programs. 
 
+For example, in wc -l the -l is a command-line flag.
 
+Basic flag declarations are available for string, integer, and boolean options. 
+Here we declare a string flag word with a default value "foo" and a short description. 
+This flag.String function returns a string pointer (not a string value); 
+we’ll see how to use this pointer below.
 
 */

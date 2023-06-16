@@ -1,66 +1,62 @@
+// https://gobyexample.com/command-line-subcommands
+
 package main
 
 import (
+    "flag"
     "fmt"
-    "time"
+    "os"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    fooCmd := flag.NewFlagSet("foo", flag.ExitOnError)
+    fooEnable := fooCmd.Bool("enable", false, "enable")
+    fooName := fooCmd.String("name", "", "name")
 
-    limiter := time.Tick(200 * time.Millisecond)
+    barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
+    barLevel := barCmd.Int("level", 0, "level")
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
-
-    burstyLimiter := make(chan time.Time, 3)
-
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
+    if len(os.Args) < 2 {
+        fmt.Println("expected 'foo' or 'bar' subcommands")
+        os.Exit(1)
     }
 
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
+    switch os.Args[1] {
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
+    case "foo":
+        fooCmd.Parse(os.Args[2:])
+        fmt.Println("subcommand 'foo'")
+        fmt.Println("  enable:", *fooEnable)
+        fmt.Println("  name:", *fooName)
+        fmt.Println("  tail:", fooCmd.Args())
+    case "bar":
+        barCmd.Parse(os.Args[2:])
+        fmt.Println("subcommand 'bar'")
+        fmt.Println("  level:", *barLevel)
+        fmt.Println("  tail:", barCmd.Args())
+    default:
+        fmt.Println("expected 'foo' or 'bar' subcommands")
+        os.Exit(1)
     }
 }
 
 
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
+Some command-line tools, like the go tool or git have many subcommands, 
+each with its own set of flags. 
+For example, go build and go get are two different subcommands of the go tool. 
+The flag package lets us easily define simple subcommands that have their own flags.
 
 
 
 */
+
+
+
+
+
+
+
+

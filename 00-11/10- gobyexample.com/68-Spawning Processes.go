@@ -1,66 +1,85 @@
+// https://gobyexample.com/spawning-processes
+
 package main
 
 import (
     "fmt"
-    "time"
+    "io"
+    "os/exec"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
+    dateCmd := exec.Command("date")
+
+    dateOut, err := dateCmd.Output()
+    if err != nil {
+        panic(err)
     }
-    close(requests)
+    fmt.Println("> date")
+    fmt.Println(string(dateOut))
 
-    limiter := time.Tick(200 * time.Millisecond)
-
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
-
-    burstyLimiter := make(chan time.Time, 3)
-
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
+    _, err = exec.Command("date", "-x").Output()
+    if err != nil {
+        switch e := err.(type) {
+        case *exec.Error:
+            fmt.Println("failed executing:", err)
+        case *exec.ExitError:
+            fmt.Println("command exit rc =", e.ExitCode())
+        default:
+            panic(err)
         }
-    }()
+    }
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
+    grepCmd := exec.Command("grep", "hello")
+
+    grepIn, _ := grepCmd.StdinPipe()
+    grepOut, _ := grepCmd.StdoutPipe()
+    grepCmd.Start()
+    grepIn.Write([]byte("hello grep\ngoodbye grep"))
+    grepIn.Close()
+    grepBytes, _ := io.ReadAll(grepOut)
+    grepCmd.Wait()
+
+    fmt.Println("> grep hello")
+    fmt.Println(string(grepBytes))
+
+    lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
+    lsOut, err := lsCmd.Output()
+    if err != nil {
+        panic(err)
     }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    fmt.Println("> ls -a -l -h")
+    fmt.Println(string(lsOut))
 }
 
 
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
+Sometimes our Go programs need to spawn other, non-Go processes.
 
 
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
+Output:
+    $ go run spawning-processes.go 
+    > date
+    Thu 05 May 2022 10:10:12 PM PDT
+
+
+    command exited with rc = 1
+    > grep hello
+    hello grep
+
+    > ls -a -l -h
+    drwxr-xr-x  4 mark 136B Oct 3 16:29 .
+    drwxr-xr-x 91 mark 3.0K Oct 3 12:50 ..
+    -rw-r--r--  1 mark 1.3K Oct 3 16:28 spawning-processes.go
 
 
 
+
+
+
+    
+
+    
 */

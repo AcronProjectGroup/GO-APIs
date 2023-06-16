@@ -1,65 +1,43 @@
+// https://gobyexample.com/http-server
+
+
 package main
 
 import (
     "fmt"
-    "time"
+    "net/http"
 )
+
+func hello(w http.ResponseWriter, req *http.Request) {
+
+    fmt.Fprintf(w, "hello\n")
+}
+
+func headers(w http.ResponseWriter, req *http.Request) {
+
+    for name, headers := range req.Header {
+        for _, h := range headers {
+            fmt.Fprintf(w, "%v: %v\n", name, h)
+        }
+    }
+}
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    http.HandleFunc("/hello", hello)
+    http.HandleFunc("/headers", headers)
 
-    limiter := time.Tick(200 * time.Millisecond)
-
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
-
-    burstyLimiter := make(chan time.Time, 3)
-
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    http.ListenAndServe(":8090", nil)
 }
 
 
 
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
+A fundamental concept in net/http servers is handlers. 
+A handler is an object implementing the http.Handler interface. 
+A common way to write a handler is by using the http.HandlerFunc 
+adapter on functions with the appropriate signature.
 
 
 
