@@ -1,66 +1,63 @@
+// https://gobyexample.com/string-formatting
+
+
 package main
 
 import (
     "fmt"
-    "time"
+    "os"
 )
+
+type point struct {
+    x, y int
+}
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    p := point{1, 2}
+    fmt.Printf("struct1: %v\n", p)
 
-    limiter := time.Tick(200 * time.Millisecond)
+    fmt.Printf("struct2: %+v\n", p)
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
+    fmt.Printf("struct3: %#v\n", p)
 
-    burstyLimiter := make(chan time.Time, 3)
+    fmt.Printf("type: %T\n", p)
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
+    fmt.Printf("bool: %t\n", true)
 
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
+    fmt.Printf("int: %d\n", 123)
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    fmt.Printf("bin: %b\n", 14)
+
+    fmt.Printf("char: %c\n", 33)
+
+    fmt.Printf("hex: %x\n", 456)
+
+    fmt.Printf("float1: %f\n", 78.9)
+
+    fmt.Printf("float2: %e\n", 123400000.0)
+    fmt.Printf("float3: %E\n", 123400000.0)
+
+    fmt.Printf("str1: %s\n", "\"string\"")
+
+    fmt.Printf("str2: %q\n", "\"string\"")
+
+    fmt.Printf("str3: %x\n", "hex this")
+
+    fmt.Printf("pointer: %p\n", &p)
+
+    fmt.Printf("width1: |%6d|%6d|\n", 12, 345)
+
+    fmt.Printf("width2: |%6.2f|%6.2f|\n", 1.2, 3.45)
+
+    fmt.Printf("width3: |%-6.2f|%-6.2f|\n", 1.2, 3.45)
+
+    fmt.Printf("width4: |%6s|%6s|\n", "foo", "b")
+
+    fmt.Printf("width5: |%-6s|%-6s|\n", "foo", "b")
+
+    s := fmt.Sprintf("sprintf: a %s", "string")
+    fmt.Println(s)
+
+    fmt.Fprintf(os.Stderr, "io: an %s\n", "error")
 }
-
-
-
-/*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
-
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
-
-*/

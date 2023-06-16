@@ -1,66 +1,59 @@
+// https://gobyexample.com/defer
+
+
 package main
 
 import (
     "fmt"
-    "time"
+    "os"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
+    f := createFile("/tmp/defer.txt")
+    defer closeFile(f)
+    writeFile(f)
+}
+
+func createFile(p string) *os.File {
+    fmt.Println("creating")
+    f, err := os.Create(p)
+    if err != nil {
+        panic(err)
     }
-    close(requests)
+    return f
+}
 
-    limiter := time.Tick(200 * time.Millisecond)
+func writeFile(f *os.File) {
+    fmt.Println("writing")
+    fmt.Fprintln(f, "data")
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
+}
 
-    burstyLimiter := make(chan time.Time, 3)
+func closeFile(f *os.File) {
+    fmt.Println("closing")
+    err := f.Close()
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "error: %v\n", err)
+        os.Exit(1)
     }
 }
 
-
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
+Defer is used to ensure that a function call is performed later 
+in a program’s execution, usually for purposes of cleanup. 
+defer is often used where e.g. ensure and finally would be used in other languages.
 
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
+Suppose we wanted to create a file, write to it, 
+and then close when we’re done. 
+Here’s how we could do that with defer.
 
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
+Immediately after getting a file object with createFile, 
+we defer the closing of that file with closeFile. 
+This will be executed at the end of the enclosing function (main), 
+after writeFile has finished.
 
 
 */

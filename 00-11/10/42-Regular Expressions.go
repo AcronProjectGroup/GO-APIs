@@ -1,66 +1,45 @@
+// https://gobyexample.com/regular-expressions
+
 package main
 
 import (
+    "bytes"
     "fmt"
-    "time"
+    "regexp"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    match, _ := regexp.MatchString("p([a-z]+)ch", "peach")
+    fmt.Println(match)
 
-    limiter := time.Tick(200 * time.Millisecond)
+    r, _ := regexp.Compile("p([a-z]+)ch")
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
+    fmt.Println(r.MatchString("peach"))
 
-    burstyLimiter := make(chan time.Time, 3)
+    fmt.Println(r.FindString("peach punch"))
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
+    fmt.Println("idx:", r.FindStringIndex("peach punch"))
 
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
+    fmt.Println(r.FindStringSubmatch("peach punch"))
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    fmt.Println(r.FindStringSubmatchIndex("peach punch"))
+
+    fmt.Println(r.FindAllString("peach punch pinch", -1))
+
+    fmt.Println("all:", r.FindAllStringSubmatchIndex(
+        "peach punch pinch", -1))
+
+    fmt.Println(r.FindAllString("peach punch pinch", 2))
+
+    fmt.Println(r.Match([]byte("peach")))
+
+    r = regexp.MustCompile("p([a-z]+)ch")
+    fmt.Println("regexp:", r)
+
+    fmt.Println(r.ReplaceAllString("a peach", "<fruit>"))
+
+    in := []byte("a peach")
+    out := r.ReplaceAllFunc(in, bytes.ToUpper)
+    fmt.Println(string(out))
 }
-
-
-
-/*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
-
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
-
-*/

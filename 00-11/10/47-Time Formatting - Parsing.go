@@ -6,61 +6,42 @@ import (
 )
 
 func main() {
+    p := fmt.Println
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    t := time.Now()
+    p(t.Format(time.RFC3339))
 
-    limiter := time.Tick(200 * time.Millisecond)
+    t1, e := time.Parse(
+        time.RFC3339,
+        "2012-11-01T22:08:41+00:00")
+    p(t1)
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
+    p(t.Format("3:04PM"))
+    p(t.Format("Mon Jan _2 15:04:05 2006"))
+    p(t.Format("2006-01-02T15:04:05.999999-07:00"))
+    form := "3 04 PM"
+    t2, e := time.Parse(form, "8 41 PM")
+    p(t2)
 
-    burstyLimiter := make(chan time.Time, 3)
+    fmt.Printf("%d-%02d-%02dT%02d:%02d:%02d-00:00\n",
+        t.Year(), t.Month(), t.Day(),
+        t.Hour(), t.Minute(), t.Second())
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    ansic := "Mon Jan _2 15:04:05 2006"
+    _, e = time.Parse(ansic, "8:41PM")
+    p(e)
 }
 
-
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
+$ go run time-formatting-parsing.go 
+2014-04-15T18:00:15-07:00
+2012-11-01 22:08:41 +0000 +0000
+6:00PM
+Tue Apr 15 18:00:15 2014
+2014-04-15T18:00:15.161182-07:00
+0000-01-01 20:41:00 +0000 UTC
+2014-04-15T18:00:15-00:00
+parsing time "8:41PM" as "Mon Jan _2 15:04:05 2006": ...
 
 */

@@ -1,66 +1,61 @@
+// https://gobyexample.com/mutexes
+
+
 package main
 
 import (
     "fmt"
-    "time"
+    "sync"
 )
 
-func main() {
-
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
-
-    limiter := time.Tick(200 * time.Millisecond)
-
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
-
-    burstyLimiter := make(chan time.Time, 3)
-
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+type Container struct {
+    mu       sync.Mutex
+    counters map[string]int
 }
 
+func (c *Container) inc(name string) {
 
+    c.mu.Lock()
+    defer c.mu.Unlock()
+    c.counters[name]++
+}
+
+func main() {
+    c := Container{
+
+        counters: map[string]int{"a": 0, "b": 0},
+    }
+
+    var wg sync.WaitGroup
+
+    doIncrement := func(name string, n int) {
+        for i := 0; i < n; i++ {
+            c.inc(name)
+        }
+        wg.Done()
+    }
+
+    wg.Add(3)
+    go doIncrement("a", 10000)
+    go doIncrement("a", 10000)
+    go doIncrement("b", 10000)
+
+    wg.Wait()
+    fmt.Println(c.counters)
+}
 
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
+In the previous example we saw how to manage simple counter state using atomic operations. 
+For more complex state we can use a mutex to safely access data across multiple goroutines.
 
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
+در مثال قبلی نحوه مدیریت حالت شمارنده ساده با استفاده از عملیات اتمی را دیدیم.
+برای وضعیت پیچیده تر، می توانیم از یک موتکس برای دسترسی ایمن به داده ها در چندین گوروتین استفاده کنیم.
 
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
+Container holds a map of counters; 
+since we want to update it concurrently from multiple goroutines, 
+we add a Mutex to synchronize access. 
+Note that mutexes must not be copied, 
+so if this struct is passed around, it should be done by pointer.
 
 */

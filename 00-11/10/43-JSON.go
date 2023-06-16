@@ -1,66 +1,83 @@
+// https://gobyexample.com/json
+
 package main
 
 import (
+    "encoding/json"
     "fmt"
-    "time"
+    "os"
 )
+
+type response1 struct {
+    Page   int
+    Fruits []string
+}
+
+type response2 struct {
+    Page   int      `json:"page"`
+    Fruits []string `json:"fruits"`
+}
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
+    bolB, _ := json.Marshal(true)
+    fmt.Println(string(bolB))
+
+    intB, _ := json.Marshal(1)
+    fmt.Println(string(intB))
+
+    fltB, _ := json.Marshal(2.34)
+    fmt.Println(string(fltB))
+
+    strB, _ := json.Marshal("gopher")
+    fmt.Println(string(strB))
+
+    slcD := []string{"apple", "peach", "pear"}
+    slcB, _ := json.Marshal(slcD)
+    fmt.Println(string(slcB))
+
+    mapD := map[string]int{"apple": 5, "lettuce": 7}
+    mapB, _ := json.Marshal(mapD)
+    fmt.Println(string(mapB))
+
+    res1D := &response1{
+        Page:   1,
+        Fruits: []string{"apple", "peach", "pear"}}
+    res1B, _ := json.Marshal(res1D)
+    fmt.Println(string(res1B))
+
+    res2D := &response2{
+        Page:   1,
+        Fruits: []string{"apple", "peach", "pear"}}
+    res2B, _ := json.Marshal(res2D)
+    fmt.Println(string(res2B))
+
+    byt := []byte(`{"num":6.13,"strs":["a","b"]}`)
+
+    var dat map[string]interface{}
+
+    if err := json.Unmarshal(byt, &dat); err != nil {
+        panic(err)
     }
-    close(requests)
+    fmt.Println(dat)
 
-    limiter := time.Tick(200 * time.Millisecond)
+    num := dat["num"].(float64)
+    fmt.Println(num)
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
+    strs := dat["strs"].([]interface{})
+    str1 := strs[0].(string)
+    fmt.Println(str1)
 
-    burstyLimiter := make(chan time.Time, 3)
+    str := `{"page": 1, "fruits": ["apple", "peach"]}`
+    res := response2{}
+    json.Unmarshal([]byte(str), &res)
+    fmt.Println(res)
+    fmt.Println(res.Fruits[0])
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    enc := json.NewEncoder(os.Stdout)
+    d := map[string]int{"apple": 5, "lettuce": 7}
+    enc.Encode(d)
 }
 
 
 
-/*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
-
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
-
-*/

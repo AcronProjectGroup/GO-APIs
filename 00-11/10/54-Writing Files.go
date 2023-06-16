@@ -1,65 +1,67 @@
+// https://gobyexample.com/writing-files
+
 package main
 
 import (
+    "bufio"
     "fmt"
-    "time"
+    "os"
 )
 
-func main() {
-
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
-
-    limiter := time.Tick(200 * time.Millisecond)
-
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
-
-    burstyLimiter := make(chan time.Time, 3)
-
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
+func check(e error) {
+    if e != nil {
+        panic(e)
     }
 }
 
+func main() {
 
+    d1 := []byte("hello\ngo\n")
+    err := os.WriteFile("/tmp/dat1", d1, 0644)
+    check(err)
+
+    f, err := os.Create("/tmp/dat2")
+    check(err)
+
+    defer f.Close()
+
+    d2 := []byte{115, 111, 109, 101, 10}
+    n2, err := f.Write(d2)
+    check(err)
+    fmt.Printf("wrote %d bytes\n", n2)
+
+    n3, err := f.WriteString("writes\n")
+    check(err)
+    fmt.Printf("wrote %d bytes\n", n3)
+
+    f.Sync()
+
+    w := bufio.NewWriter(f)
+    n4, err := w.WriteString("buffered\n")
+    check(err)
+    fmt.Printf("wrote %d bytes\n", n4)
+
+    w.Flush()
+
+}
 
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
+$ go run writing-files.go 
+wrote 5 bytes
+wrote 7 bytes
+wrote 9 bytes
 
 
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
+$ cat /tmp/dat1
+hello
+go
+$ cat /tmp/dat2
+some
+writes
+buffered
+
+
 
 
 

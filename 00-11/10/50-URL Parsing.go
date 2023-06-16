@@ -1,65 +1,71 @@
+// https://gobyexample.com/url-parsing
+
 package main
 
 import (
     "fmt"
-    "time"
+    "net"
+    "net/url"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    s := "postgres://user:pass@host.com:5432/path?k=v#f"
 
-    limiter := time.Tick(200 * time.Millisecond)
-
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
+    u, err := url.Parse(s)
+    if err != nil {
+        panic(err)
     }
 
-    burstyLimiter := make(chan time.Time, 3)
+    fmt.Println(u.Scheme)
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
+    fmt.Println(u.User)
+    fmt.Println(u.User.Username())
+    p, _ := u.User.Password()
+    fmt.Println(p)
 
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
+    fmt.Println(u.Host)
+    host, port, _ := net.SplitHostPort(u.Host)
+    fmt.Println(host)
+    fmt.Println(port)
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    fmt.Println(u.Path)
+    fmt.Println(u.Fragment)
+
+    fmt.Println(u.RawQuery)
+    m, _ := url.ParseQuery(u.RawQuery)
+    fmt.Println(m)
+    fmt.Println(m["k"][0])
 }
 
+/*Output:
+    $ go run url-parsing.go 
+    postgres
+    user:pass
+    user
+    pass
+    host.com:5432
+    host.com
+    5432
+    /path
+    f
+    k=v
+    map[k:[v]]
+    v
+*/
+
+// ------------------------------------------
 
 
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
+URLs provide a uniform way to locate resources. Here’s how to parse URLs in Go.
 
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
+We’ll parse this example URL, 
+which includes a scheme, 
+authentication info, 
+host, port, path, query params, 
+and query fragment.
 
 
 

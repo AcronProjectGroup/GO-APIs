@@ -1,66 +1,91 @@
+// https://gobyexample.com/stateful-goroutines
+
+
 package main
 
 import (
     "fmt"
+    "math/rand"
+    "sync/atomic"
     "time"
 )
 
+type readOp struct {
+    key  int
+    resp chan int
+}
+type writeOp struct {
+    key  int
+    val  int
+    resp chan bool
+}
+
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    var readOps uint64
+    var writeOps uint64
 
-    limiter := time.Tick(200 * time.Millisecond)
-
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
-
-    burstyLimiter := make(chan time.Time, 3)
-
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
+    reads := make(chan readOp)
+    writes := make(chan writeOp)
 
     go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
+        var state = make(map[int]int)
+        for {
+            select {
+            case read := <-reads:
+                read.resp <- state[read.key]
+            case write := <-writes:
+                state[write.key] = write.val
+                write.resp <- true
+            }
         }
     }()
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
+    for r := 0; r < 100; r++ {
+        go func() {
+            for {
+                read := readOp{
+                    key:  rand.Intn(5),
+                    resp: make(chan int)}
+                reads <- read
+                <-read.resp
+                atomic.AddUint64(&readOps, 1)
+                time.Sleep(time.Millisecond)
+            }
+        }()
     }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
+
+    for w := 0; w < 10; w++ {
+        go func() {
+            for {
+                write := writeOp{
+                    key:  rand.Intn(5),
+                    val:  rand.Intn(100),
+                    resp: make(chan bool)}
+                writes <- write
+                <-write.resp
+                atomic.AddUint64(&writeOps, 1)
+                time.Sleep(time.Millisecond)
+            }
+        }()
     }
+
+    time.Sleep(time.Second)
+
+    readOpsFinal := atomic.LoadUint64(&readOps)
+    fmt.Println("readOps:", readOpsFinal)
+    writeOpsFinal := atomic.LoadUint64(&writeOps)
+    fmt.Println("writeOps:", writeOpsFinal)
 }
-
-
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
+In the previous example we used explicit locking with mutexes to 
+synchronize access to shared state across multiple goroutines. 
+Another option is to use the built-in synchronization features of 
+goroutines and channels to achieve the same result. 
+This channel-based approach aligns with Go’s ideas of sharing 
+memory by communicating and having each piece of data owned by exactly 1 goroutine.
 
 
 */
+

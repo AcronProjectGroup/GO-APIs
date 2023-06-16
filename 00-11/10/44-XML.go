@@ -1,66 +1,55 @@
+// https://gobyexample.com/xml
+
 package main
 
 import (
+    "encoding/xml"
     "fmt"
-    "time"
 )
 
+type Plant struct {
+    XMLName xml.Name `xml:"plant"`
+    Id      int      `xml:"id,attr"`
+    Name    string   `xml:"name"`
+    Origin  []string `xml:"origin"`
+}
+
+func (p Plant) String() string {
+    return fmt.Sprintf("Plant id=%v, name=%v, origin=%v",
+        p.Id, p.Name, p.Origin)
+}
+
 func main() {
+    coffee := &Plant{Id: 27, Name: "Coffee"}
+    coffee.Origin = []string{"Ethiopia", "Brazil"}
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
+    out, _ := xml.MarshalIndent(coffee, " ", "  ")
+    fmt.Println(string(out))
+
+    fmt.Println(xml.Header + string(out))
+
+    var p Plant
+    if err := xml.Unmarshal(out, &p); err != nil {
+        panic(err)
     }
-    close(requests)
+    fmt.Println(p)
 
-    limiter := time.Tick(200 * time.Millisecond)
+    tomato := &Plant{Id: 81, Name: "Tomato"}
+    tomato.Origin = []string{"Mexico", "California"}
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
+    type Nesting struct {
+        XMLName xml.Name `xml:"nesting"`
+        Plants  []*Plant `xml:"parent>child>plant"`
     }
 
-    burstyLimiter := make(chan time.Time, 3)
+    nesting := &Nesting{}
+    nesting.Plants = []*Plant{coffee, tomato}
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
-
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    out, _ = xml.MarshalIndent(nesting, " ", "  ")
+    fmt.Println(string(out))
 }
 
 
 
-/*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
-
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
 
 
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
-
-*/

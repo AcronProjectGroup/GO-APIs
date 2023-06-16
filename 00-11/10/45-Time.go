@@ -6,61 +6,67 @@ import (
 )
 
 func main() {
+    p := fmt.Println
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    now := time.Now()
+    p(now)
 
-    limiter := time.Tick(200 * time.Millisecond)
+    then := time.Date(
+        2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
+    p(then)
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
+    p(then.Year())
+    p(then.Month())
+    p(then.Day())
+    p(then.Hour())
+    p(then.Minute())
+    p(then.Second())
+    p(then.Nanosecond())
+    p(then.Location())
 
-    burstyLimiter := make(chan time.Time, 3)
+    p(then.Weekday())
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
+    p(then.Before(now))
+    p(then.After(now))
+    p(then.Equal(now))
 
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
+    diff := now.Sub(then)
+    p(diff)
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    p(diff.Hours())
+    p(diff.Minutes())
+    p(diff.Seconds())
+    p(diff.Nanoseconds())
+
+    p(then.Add(diff))
+    p(then.Add(-diff))
 }
 
-
-
 /*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
 
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
+ 	
 
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
+$ go run time.go
+2012-10-31 15:50:13.793654 +0000 UTC
+2009-11-17 20:34:58.651387237 +0000 UTC
+2009
+November
+17
+20
+34
+58
+651387237
+UTC
+Tuesday
+true
+false
+false
+25891h15m15.142266763s
+25891.25420618521
+1.5534752523711128e+06
+9.320851514226677e+07
+93208515142266763
+2012-10-31 15:50:13.793654 +0000 UTC
+2006-12-05 01:19:43.509120474 +0000 UTC
 
 */

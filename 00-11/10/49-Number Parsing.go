@@ -1,66 +1,29 @@
+// https://gobyexample.com/number-parsing
+
 package main
 
 import (
     "fmt"
-    "time"
+    "strconv"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
+    f, _ := strconv.ParseFloat("1.234", 64)
+    fmt.Println(f)
 
-    limiter := time.Tick(200 * time.Millisecond)
+    i, _ := strconv.ParseInt("123", 0, 64)
+    fmt.Println(i)
 
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
-    }
+    d, _ := strconv.ParseInt("0x1c8", 0, 64)
+    fmt.Println(d)
 
-    burstyLimiter := make(chan time.Time, 3)
+    u, _ := strconv.ParseUint("789", 0, 64)
+    fmt.Println(u)
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
-    }
+    k, _ := strconv.Atoi("135")
+    fmt.Println(k)
 
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
-
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    _, e := strconv.Atoi("wat")
+    fmt.Println(e)
 }
-
-
-
-/*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
-
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
-
-*/

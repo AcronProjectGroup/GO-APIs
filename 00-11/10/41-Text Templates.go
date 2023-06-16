@@ -1,66 +1,58 @@
+// https://gobyexample.com/text-templates
+
+
 package main
 
 import (
-    "fmt"
-    "time"
+    "os"
+    "text/template"
 )
 
 func main() {
 
-    requests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        requests <- i
-    }
-    close(requests)
-
-    limiter := time.Tick(200 * time.Millisecond)
-
-    for req := range requests {
-        <-limiter
-        fmt.Println("request", req, time.Now())
+    t1 := template.New("t1")
+    t1, err := t1.Parse("Value is {{.}}\n")
+    if err != nil {
+        panic(err)
     }
 
-    burstyLimiter := make(chan time.Time, 3)
+    t1 = template.Must(t1.Parse("Value: {{.}}\n"))
 
-    for i := 0; i < 3; i++ {
-        burstyLimiter <- time.Now()
+    t1.Execute(os.Stdout, "some text")
+    t1.Execute(os.Stdout, 5)
+    t1.Execute(os.Stdout, []string{
+        "Go",
+        "Rust",
+        "C++",
+        "C#",
+    })
+
+    Create := func(name, t string) *template.Template {
+        return template.Must(template.New(name).Parse(t))
     }
 
-    go func() {
-        for t := range time.Tick(200 * time.Millisecond) {
-            burstyLimiter <- t
-        }
-    }()
+    t2 := Create("t2", "Name: {{.Name}}\n")
 
-    burstyRequests := make(chan int, 5)
-    for i := 1; i <= 5; i++ {
-        burstyRequests <- i
-    }
-    close(burstyRequests)
-    for req := range burstyRequests {
-        <-burstyLimiter
-        fmt.Println("request", req, time.Now())
-    }
+    t2.Execute(os.Stdout, struct {
+        Name string
+    }{"Jane Doe"})
+
+    t2.Execute(os.Stdout, map[string]string{
+        "Name": "Mickey Mouse",
+    })
+
+    t3 := Create("t3",
+        "{{if . -}} yes {{else -}} no {{end}}\n")
+    t3.Execute(os.Stdout, "not empty")
+    t3.Execute(os.Stdout, "")
+
+    t4 := Create("t4",
+        "Range: {{range .}}{{.}} {{end}}\n")
+    t4.Execute(os.Stdout,
+        []string{
+            "Go",
+            "Rust",
+            "C++",
+            "C#",
+        })
 }
-
-
-
-/*
-Rate limiting is an important mechanism for 
-controlling resource utilization and maintaining quality of service. 
-Go elegantly supports rate limiting with goroutines, channels, and tickers.
-
-محدود کردن نرخ یک مکانیسم مهم برای کنترل استفاده از منابع و حفظ کیفیت خدمات است.
-گو به زیبایی از محدود کردن نرخ با گوروتین‌ها، کانال‌ها و علامت‌ها پشتیبانی می‌کند.
-
-First we’ll look at basic rate limiting. 
-Suppose we want to limit our handling of incoming requests. 
-We’ll serve these requests off a channel of the same name.
-
-
-This limiter channel will receive a value every 200 milliseconds. 
-This is the regulator in our rate limiting scheme.
-
-
-
-*/
