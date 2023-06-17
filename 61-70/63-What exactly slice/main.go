@@ -23,28 +23,32 @@ import "fmt"
 
 func main() {
 
-	var s []int                   // a nil slice
-	fmt.Println(s)
-	// s[0] = 1
-	
-	s1 := []string{"foo", "bar"}
-	fmt.Println(s1)
+	// Basic Create
+		var s []int                   // a nil slice
+		fmt.Println(s)
+		// s[0] = 1
+		
+		s1 := []string{"foo", "bar"}
+		fmt.Println(s1)
 
-	s2 := make([]int, 2)          // same as []int{0, 0}
-	fmt.Println(s2)
-	
-	
-	s3 := make([]int, 2, 4)       // same as new([4]int)[:2]
-	fmt.Println(s3)
-	fmt.Println(len(s3), cap(s3)) // 2 4
+		s2 := make([]int, 2)          // same as []int{0, 0}
+		fmt.Println(s2)
+		
+		
+		s3 := make([]int, 2, 4)       // same as new([4]int)[:2]
+		fmt.Println(s3)
+		fmt.Println(len(s3), cap(s3)) // 2 4
 
-	a := [...]int{0, 1, 2, 3}     // an array
-	s4 := a[1:3]               	  // s == []int{1, 2}        cap(s) == 3
-	s4 = a[:2]                    // s == []int{0, 1}        cap(s) == 4
-	s4 = a[2:]                    // s == []int{2, 3}        cap(s) == 2
-	s4 = a[:]                     // s == []int{0, 1, 2, 3}  cap(s) == 4
 
-	fmt.Println(s4)
+	// create a slice by slicing an existing array or slice.
+		a := [...]int{0, 1, 2, 3}     // an array
+		s4 := a[1:3]               	  // s == []int{1, 2}        cap(s) == 3
+		s4 = a[:2]                    // s == []int{0, 1}        cap(s) == 4
+		s4 = a[2:]                    // s == []int{2, 3}        cap(s) == 2
+		s4 = a[:]                     // s == []int{0, 1, 2, 3}  cap(s) == 4
 
-	
+		fmt.Println(s4)
+
+		
+
 }
