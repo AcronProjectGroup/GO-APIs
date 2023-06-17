@@ -4,14 +4,17 @@
 // When you change an element of a slice, you modify the corresponding element of its underlying array, and other slices that share the same underlying array will see the change.
 // هنگامی که یک عنصر از یک برش را تغییر می‌دهید، عنصر مربوط به آرایه زیرین آن را تغییر می‌دهید و سایر برش‌هایی که همان آرایه زیرین را به اشتراک می‌گذارند، این تغییر را مشاهده خواهند کرد.
 
+/* Arraye:
+		1- an ordered sequence of elements
+
+*/
 
 
 /* Slice:
-		1- describes a section of an underlying array
-		2- actualy any cheanges is on element of underlying array
-		3-
-
-
+		1- an ordered sequence of elements
+		2- describes a section of an underlying array
+		3- actualy any cheanges is on element of underlying array
+		4-
 
 */
 
@@ -49,6 +52,5 @@ func main() {
 
 		fmt.Println(s4)
 
-		
 
 }
