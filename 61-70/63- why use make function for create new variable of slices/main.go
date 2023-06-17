@@ -16,9 +16,9 @@ func main() {
 	just_Deriving_Scores[1] = 13
 
 	practical_Score := just_Deriving_Scores[0] // نمره عملی
-	theory_Acore := just_Deriving_Scores[1] // نمره تئوری
+	theory_Score := just_Deriving_Scores[1] // نمره تئوری
 
-	average_number_before_teacher := (practical_Score + theory_Acore) / float64(len(just_Deriving_Scores))
+	average_number_before_teacher := (practical_Score + theory_Score) / float64(len(just_Deriving_Scores))
 
 
 	if average_number_before_teacher >= 15 {
