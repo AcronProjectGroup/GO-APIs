@@ -1,13 +1,14 @@
-// A slice doesn’t store any data, it just describes a section of an underlying array.
-// یک برش هیچ داده ای را ذخیره نمی کند، فقط بخشی از یک آرایه زیرین را توصیف می کند.
+/*
 
-// When you change an element of a slice, you modify the corresponding element of its underlying array, and other slices that share the same underlying array will see the change.
-// هنگامی که یک عنصر از یک برش را تغییر می‌دهید، عنصر مربوط به آرایه زیرین آن را تغییر می‌دهید و سایر برش‌هایی که همان آرایه زیرین را به اشتراک می‌گذارند، این تغییر را مشاهده خواهند کرد.
+Array:
+	1- index start from 0
+	2- lenght start from 1
+	3- ordered
+	4- capacity define when created
 
 /* Arraye:
 		1- an ordered sequence of elements
-		2- use when you want to work with many related values
-		
+
 */
 
 
@@ -19,49 +20,44 @@
 
 */
 
-/* significant differences:
-		An array in Go is a data structure that consists of an ordered sequence of elements that has its capacity defined at creation time.
-        ظرفیت آن در زمان ایجاد تعریف شده است
-		Once an array has allocated its size, the size can no longer be changed.
 
-		 A slice, on the other hand, is a variable length version of an array
-		 از سوی دیگر، Slice یک نسخه با طول متغیر از یک آرایه است
-
-
-		 
-*/
 
 package main
 
 import "fmt"
 
 func main() {
+	// Basic Create
+		var myArray [2]int
+		fmt.Println("myArray: ", myArray)
+		myArray[0] = 11
+		myArray[1] = 11
+		fmt.Println("myArray: ", myArray)
 
 	// Basic Create
-		var s []int                   // a nil slice
-		fmt.Println(s)
-		// s[0] = 1
-		
-		s1 := []string{"foo", "bar"}
-		fmt.Println(s1)
+		var mySlice []int    
+		fmt.Println("mySlice: ", mySlice) 
+		mySlice = append(mySlice, 1)
+		mySlice = append(mySlice, 2)
+		mySlice = append(mySlice, 3)
+		fmt.Println("mySlice: ", mySlice) 
 
-		s2 := make([]int, 2)          // same as []int{0, 0}
-		fmt.Println(s2)
-		
-		
-		s3 := make([]int, 2, 4)       // same as new([4]int)[:2]
-		fmt.Println(s3)
-		fmt.Println(len(s3), cap(s3)) // 2 4
+	// Slice with reserved elements:   برش با عناصر رزرو شده
+		// use the built-in make() function:
+		mySlice_withـfixedـcapacity :=  make([]int, 3)
+		fmt.Println("Slice with fixed capacity: ",mySlice_withـfixedـcapacity)
+		mySlice_withـfixedـcapacity = append(mySlice_withـfixedـcapacity, 1, 2, 3)
+		fmt.Println("Slice with fixed capacity: ",mySlice_withـfixedـcapacity)
+		// چجوری اون سه تای اول رو تغییر بدیم؟
+		mySlice_withـfixedـcapacity[0] = 1
+		mySlice_withـfixedـcapacity[1] = 2
+		mySlice_withـfixedـcapacity[2] = 3
+		fmt.Println("Slice with fixed capacity: ",mySlice_withـfixedـcapacity)
 
-
-	// create a slice by slicing an existing array or slice.
-		a := [...]int{0, 1, 2, 3}     // an array
-		s4 := a[1:3]               	  // s == []int{1, 2}        cap(s) == 3
-		s4 = a[:2]                    // s == []int{0, 1}        cap(s) == 4
-		s4 = a[2:]                    // s == []int{2, 3}        cap(s) == 2
-		s4 = a[:]                     // s == []int{0, 1, 2, 3}  cap(s) == 4
-
-		fmt.Println(s4)
-
-
+	// Slicing Arrays into Slices
+		// note however, that when slicing an array, the result is a slice, not an array.
+		mySlice_from_myArray := myArray[0:]
+		fmt.Printf("Type(mySlice from myArray): %T\n", mySlice_from_myArray)
+		mySlice_from_myArray = append(mySlice_from_myArray, 6,7,8,9)
+		fmt.Println("mySlice from myArray: ", mySlice_from_myArray)
 }
