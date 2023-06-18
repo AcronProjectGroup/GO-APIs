@@ -1,12 +1,12 @@
-// One of the reasons for using slices is the number of fixed indexes
-//  یکی از دلایل استفاده از اسلایس تعداد ایندکس ثابت است
+// One of the reasons for using arrays is the number of fixed indexes
+//  یکی از دلایل استفاده از آرایه ها تعداد ایندکس ثابت است
 
 package main
 
 import "fmt"
 
 func main() {
-	var driving_Exam [2]float64
+	var driving_Exam [2]float64 // the array
 
 	println("Enter the practical driving test score (1 to 20): ")
 	fmt.Scan(&driving_Exam[0])
