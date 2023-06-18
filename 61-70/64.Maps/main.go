@@ -1,7 +1,9 @@
 /*
 
 	1- An unordered collection of key-value pairs
-
+	2- map[Type of key]Type of value{}
+	   map[string]float64{}
+	3-
 
 
 
@@ -12,26 +14,10 @@
 
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 package main
+
 
 func main() {
 
+ 
 }
