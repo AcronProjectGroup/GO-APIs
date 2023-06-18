@@ -1,3 +1,6 @@
+// 59- Why use switch case? 
+// Several if and else if
+
 package main
 
 import (
@@ -87,6 +90,22 @@ func main() {
 		fmt.Println("Happy birthday! you are Bahmani... :))")
 	case 12:
 		fmt.Println("Happy birthday! you are Esfandi... :))")
+	}
+
+
+
+	var myString string
+	myString = "AcronProject"
+
+	switch myString {
+	case "You":
+		println("Hello", "You")
+	case "To":
+	case "Shoma":
+	case "I":
+	case "am":
+	case "From":
+	case "Iran":
 	}
 
 }
