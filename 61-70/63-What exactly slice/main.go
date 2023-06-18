@@ -21,12 +21,11 @@ package main
 import "fmt"
 
 func main() {
-
 	// Basic Create
 		var myArray [2]int
 		fmt.Println("myArray: ", myArray)
-		myArray[0] = 1
-		myArray[1] = 1
+		myArray[0] = 11
+		myArray[1] = 11
 		fmt.Println("myArray: ", myArray)
 
 	// Basic Create
@@ -37,16 +36,22 @@ func main() {
 		mySlice = append(mySlice, 3)
 		fmt.Println("mySlice: ", mySlice) 
 
-	// Slice with fixed capacity: 
-		// A slice of a certain length without populating -  use the built-in make() function:
+	// Slice with reserved elements:   برش با عناصر رزرو شده
+		// use the built-in make() function:
 		mySlice_withـfixedـcapacity :=  make([]int, 3)
 		fmt.Println("Slice with fixed capacity: ",mySlice_withـfixedـcapacity)
 		mySlice_withـfixedـcapacity = append(mySlice_withـfixedـcapacity, 1, 2, 3)
 		fmt.Println("Slice with fixed capacity: ",mySlice_withـfixedـcapacity)
-
+		// چجوری اون سه تای اول رو تغییر بدیم؟
 		mySlice_withـfixedـcapacity[0] = 1
 		mySlice_withـfixedـcapacity[1] = 2
 		mySlice_withـfixedـcapacity[2] = 3
 		fmt.Println("Slice with fixed capacity: ",mySlice_withـfixedـcapacity)
 
+	// Slicing Arrays into Slices
+		// note however, that when slicing an array, the result is a slice, not an array.
+		mySlice_from_myArray := myArray[0:]
+		fmt.Printf("Type(mySlice from myArray): %T\n", mySlice_from_myArray)
+		mySlice_from_myArray = append(mySlice_from_myArray, 6,7,8,9)
+		fmt.Println("mySlice from myArray: ", mySlice_from_myArray)
 }
