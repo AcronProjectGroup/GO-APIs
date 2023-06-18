@@ -6,7 +6,8 @@
 
 /* Arraye:
 		1- an ordered sequence of elements
-
+		2- use when you want to work with many related values
+		
 */
 
 
@@ -18,7 +19,17 @@
 
 */
 
+/* significant differences:
+		An array in Go is a data structure that consists of an ordered sequence of elements that has its capacity defined at creation time.
+        ظرفیت آن در زمان ایجاد تعریف شده است
+		Once an array has allocated its size, the size can no longer be changed.
 
+		 A slice, on the other hand, is a variable length version of an array
+		 از سوی دیگر، Slice یک نسخه با طول متغیر از یک آرایه است
+
+
+		 
+*/
 
 package main
 
