@@ -5,6 +5,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	_ "net/http/pprof"
 )
 
 type book struct {
@@ -14,6 +15,7 @@ type book struct {
 var bookList []book = []book{}
 
 func main()  {
+	
 	mux := http.DefaultServeMux
 	mux.HandleFunc("/", func (w http.ResponseWriter, r *http.Request)  {
 		b, _ := ioutil.ReadFile("cover-YouTube.jpg")
@@ -22,6 +24,7 @@ func main()  {
 		w.Write(b)
 	})
 
+	
 	mux.Handle("/book", http.HandlerFunc(handleBooks))
 
 	http.ListenAndServe(":8888", nil)
