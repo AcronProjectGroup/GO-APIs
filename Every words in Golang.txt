@@ -11,6 +11,7 @@ in File of Go:
     variable = var
 2. 
     constant = const
+    Constants are basically variables whose values cannot be changed later.
 3. 
     package main = first executable file main.go
 4. 
@@ -20,7 +21,7 @@ in File of Go:
 6.
     import = for importing another package
 7. 
-    Format String like: fmt.Printf("%v %s %f", variable, string, float32)
+    string
 8.
     int = integers
     uint8,  uint16,  uint32,  uint64,int8,  int16,  int32
@@ -37,28 +38,108 @@ in File of Go:
 13.
     complex64, complex128
 14.
+    Format String like: fmt.Printf("%v %s %f", variable, string, float32)
 15.
+    Scope
+    Go is lexically scoped using blocks.
+
 16.
-    array
-    slice
-    map
-    panic
-    defer
-    recover
+    Defining Multiple Variables
 17.
+    fmt.Scanf("%f", &input)
+    We use another function from the fmt package to readthe   user   input   (Scanf).
 18.
+    for 
+    loop
 19.
+    if
+    else
+20.
+    Switch
+    default
+21.
+    array
+    An array is a numbered sequence of elements of a sin-gle type with a fixed length.
+22.
+    value
+23.
+    range
+24.
+    len(x)
+    length
+25.
+    slice
+    A slice is a segment of an array. Like arrays slices areindexable and have a length. Unlike arrays this lengthis allowed to change.
+26.
+    make
+    f you want to create a slice you should use the built-inmake function
+27.
+    Slice Functions:
+    append
+    add to slice
+28.
+    [low : high]
+    Another way to create slices is to use the [low : high]expression
+29.
+    map
+    A map is an unordered collection of key-value pairs.Also known as an associative array, a hash table or dictionary, maps are used to look up a value by its associated key.
+
+30.
+    slices maps 
+31.
+    delete function
+    We can also delete items from a map using the built-indelete function.
+32.
+    make map
+33.
+    function
+    A function is an independent section of code that mapszero or more input parameters to zero or more outputparameters.   Functions   (also   known   as   procedures   orsubroutines) are often represented as a black box: (theblack box represents the function)
+34.
+    Your Second Function
+35.
+    Returning Multiple Values
+    Go is also capable of returning multiple values from afunction
+36.
+    Variadic Functions
+    func add(args ...int) int {}
+37.
+    Closure
+    It is possible to create functions inside of functions
+38.
+    increment  adds 1 to the variable  x  which is defined inthe  main  function's   scope. 
+39.
+    return function from a function
+40.
+    Recursion
+    Finally a function is able to call itself. Here is one wayto compute the factorial of a number
+
+41.
+    Defer, Panic & Recover
+42.
+    defer
+    Go has a special statement called defer which schedules a function call to be run after the function completes.
+43.
+    defer is often used when resources need to be freed insome way. For example when we open a file we need to make sure to close it later. With defer:
+44.
+    panic
+    the  panicfunction   to   cause   a   run   time   error.  
+45.
+    recover
+    We can handle arun-time panic with the built-in recover function.
+    recover stops the panic and returns the value that waspassed to the call to panic.
+46.
+    Pointers
+    
+47.
+48.
+49.
+50.
+
     type
     struct
-20.
-
-    
-21.
     func FunctionName(ParameterName ParameterType) ReturnType
     e.g
     func getUserName(UserInput string) string
-
-
 
 
 in Command Line Interface Go:
