@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 in File of Go:
 -------------
 1.
@@ -55,7 +48,7 @@ in File of Go:
     if
     else
 20.
-    Switch
+    switch
     default
 21.
     array
@@ -74,7 +67,7 @@ in File of Go:
     make
     f you want to create a slice you should use the built-inmake function
 27.
-    Slice Functions:
+    slice functions:
     append
     add to slice
 28.
@@ -94,54 +87,127 @@ in File of Go:
 33.
     function
     A function is an independent section of code that mapszero or more input parameters to zero or more outputparameters.   Functions   (also   known   as   procedures   orsubroutines) are often represented as a black box: (theblack box represents the function)
+    func FunctionName(ParameterName ParameterType) ReturnType { body of function}
+    e.g
+    func getUserName(UserInput string) string { return UserInput }
 34.
-    Your Second Function
-35.
-    Returning Multiple Values
+    returning multiple values
     Go is also capable of returning multiple values from afunction
-36.
-    Variadic Functions
+35.
+    variadic functions
     func add(args ...int) int {}
-37.
-    Closure
+36.
+    closure
     It is possible to create functions inside of functions
-38.
+37.
     increment  adds 1 to the variable  x  which is defined inthe  main  function's   scope. 
-39.
+38.
     return function from a function
-40.
-    Recursion
+39.
+    recursion
     Finally a function is able to call itself. Here is one wayto compute the factorial of a number
-
-41.
-    Defer, Panic & Recover
-42.
+40.
     defer
     Go has a special statement called defer which schedules a function call to be run after the function completes.
-43.
-    defer is often used when resources need to be freed insome way. For example when we open a file we need to make sure to close it later. With defer:
-44.
+    is often used when resources need to be freed insome way. For example when we open a file we need to make sure to close it later. With defer:
+41.
     panic
     the  panicfunction   to   cause   a   run   time   error.  
-45.
+42.
     recover
     We can handle arun-time panic with the built-in recover function.
     recover stops the panic and returns the value that waspassed to the call to panic.
-46.
+43.
     Pointers    
-47.
+    * &
+44.
     new
     Another way to get a pointer is to use the built-in newfunction.
-48.
-    
-49.
-50.
-
+45.
     type
+    In the provided Go code, "type" is a keyword used to define a new named type or alias. It allows you to create custom types with specific behaviors and characteristics.
+    By using the "type" keyword, you can create your own named types or aliases that can be used throughout your code, providing better abstraction and type safety.
+46.
     struct
-    func FunctionName(ParameterName ParameterType) ReturnType
-    e.g
-    func getUserName(UserInput string) string
+    A struct is a type which contains named fields.
+    the keyword structto indicate that we are defining a struct type and alist of fields inside of curly braces.
+    Each field has a name and a type. 
+    For a struct zero means each of the fields is set to their correspond-ing zero value:
+    (0 for ints, 0.0 for floats, "" for strings,nil for pointers, ...)
+47.
+    new function struct
+    e.g:
+    c := new(Circle)
+    This allocates memory for all the fields,
+    sets each of them to their zero value and returns a pointer.
+    (*Circle) More often we want to give each of the fieldsa value.
+48.
+    method
+    function receiver VS. function parameter
+    The receiver can be of two types: 
+    value receiver (func (t T) methodName()) 
+    or pointer receiver (func (t *T) methodName()), 
+    depending on whether the method modifies the receiver or not. 
+49.
+    interface
+50.
+    Concurrency
+51.
+    Goroutines
+52.
+    Channels
+    chan
+53.
+    Channel Direction
+54.
+    Select
+    case
+55.
+    buffered channels
+56.
+    packages
+    creating packages
+57.
+    testing
+58.
+    the core packages
+59.
+    iput / output
+    Go's io package.
+60.
+    files & folders
+    To open a file in Go use the Open function from the os package.
+61.
+    errors
+62.
+    containers & sort
+    Go has several more collections available underneath the container package.
+63.
+    hashes & cryptography
+    Hash functions in Go are broken into two categories:
+    cryptographic and non-crypto-graphic.
+    The non-cryptographic hash functions can be found underneath the hash package and include adler32, crc32, crc64 and fnv.
+64.
+    servers
+65.
+    HTTP servers
+66.
+    RPC
+    The  net/rpc (remote procedure call) 
+    and net/rpc/jsonrpc packages provide an easy way to expose methods 
+    so they can be invoked over a network. (rather than just in the program running them)
+67.
+    parsing command line arguments
+68.
+    synchronization primitives
+69.
+    Mutexes
+    A mutex (mutal exclusive lock) locks a section of code 
+    to a single thread at a time and is used to protect 
+    shared resources from non-atomic operations.
+70.
+    
+
 
 
 in Command Line Interface Go:

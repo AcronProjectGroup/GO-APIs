@@ -5,6 +5,7 @@ import (
 	"os"
 )
 
+
 func main() {
 	// Example for variables
 	var variable string
@@ -99,7 +100,6 @@ func main() {
 	xMake := make([]float64, 5)
 	fmt.Println(xMake)
 
-	// 27.
 	// Slice Functions
 	// append
 	xMake = append(xMake, 3.14)
@@ -110,55 +110,41 @@ func main() {
 	slice2 := append(slice1, 4, 5)
 	fmt.Println(slice1, slice2)
 
-	// 28.
 	// [low : high]
 	arr := [5]float64{1, 2, 3, 4, 5}
 	xAnother := arr[0:5]
 	fmt.Println(xAnother)
 
-	// 29.
 	// map
 	var xMap map[string]int
 	fmt.Println(xMap)
 	// If you were to read this out loud you would say “xis a map of strings to ints.”
 
-	// 30.
 	// slices maps
 	var xSlicesMaps map[string]int
 	xSlicesMaps["key"] = 10
 	fmt.Println(xSlicesMaps["key"])
 
-	// 31.
 	// delete function
 	delete(xSlicesMaps, "key")
 
-	// 32.
 	// make map
 	xMakeMap := make(map[int]int)
 	xMakeMap[1] = 10
 	fmt.Println(xMakeMap[1])
 
-	// 34.
-	// Your Second Function
-	var sliceForIt []float64
-	average(sliceForIt)
-
-	// 35.
 	// Returning Multiple Values
 	f()
 
-	// 36.
 	// Variadic Functions
 	add(1, 1, 1, 1, 1, 1)
 
-	// 37.
 	// Closure
 	add37 := func(x, y int) int {
 		return x + y
 	}
 	fmt.Println(add37(1, 1))
 
-	// 38.
 	// increment
 	xInc := 0
 	increment := func() int {
@@ -168,15 +154,12 @@ func main() {
 	fmt.Println(increment())
 	fmt.Println(increment())
 
-	// 39.
 	// return function from a function
 	makeEvenGenerator()
 
-	// 40.
 	// Recursion
 	factorial(4)
 
-	// 42.
 	defer second()
 	first()
 	/* Description
@@ -187,11 +170,9 @@ func main() {
 	}
 	*/
 
-	// 43.
 	f, _ := os.Open("fileName.txt")
 	defer f.Close()
 
-	// 45.
 
 	/* False:
 	func main() {
@@ -215,7 +196,6 @@ func main() {
 	zero(xDontChanges)
 	fmt.Println(xDontChanges) // x is still 5
 
-	// 47.
     // new
 	
 
@@ -227,39 +207,13 @@ func main() {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 34.
-func average(xs []float64) float64 {
-	panic("Not Implemented")
-}
-
-// 35.
+// ------------------------------------------------
+// ------------------------------------------------
+// ------------------------------------------------
 func f() (int, int) {
 	return 5, 6
 }
 
-// 36.
 func add(args ...int) int {
 	total := 0
 	for _, v := range args {
@@ -268,7 +222,6 @@ func add(args ...int) int {
 	return total
 }
 
-// 39.
 func makeEvenGenerator() func() uint {
 	i := uint(0)
 	return func() (ret uint) {
@@ -278,7 +231,6 @@ func makeEvenGenerator() func() uint {
 	}
 }
 
-// 40.
 func factorial(x uint) uint {
 	if x == 0 {
 		return 1
@@ -296,7 +248,6 @@ func factorial(x uint) uint {
 • return 2 * 1
 */
 
-// 42.
 func first() {
 	fmt.Println("1st")
 }
