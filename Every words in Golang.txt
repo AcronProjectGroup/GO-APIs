@@ -129,7 +129,7 @@ in File of Go:
     recover stops the panic and returns the value that waspassed to the call to panic.
 46.
     Pointers
-    
+        
 47.
 48.
 49.

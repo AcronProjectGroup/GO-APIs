@@ -194,25 +194,58 @@ func main() {
 	// 45.
 
 	/* False:
-		func main() {
-			panic("PANIC")
-			str := recover()
-			fmt.Println(str)
-		}
+	func main() {
+		panic("PANIC")
+		str := recover()
+		fmt.Println(str)
+	}
 	*/
 
 	// True:
-	defer func() {
-		str := recover()
-		fmt.Println(str)
-	}()
-	panic("PANIC")
+	// defer func() {
+	// 	str := recover()
+	// 	fmt.Println(str)
+	// }()
+	// panic("PANIC")
+
+	// func zero(x int) {
+	// 	x = 0
+	// }
+	xDontChanges := 5
+	zero(xDontChanges)
+	fmt.Println(xDontChanges) // x is still 5
+
+
+
+
+
 
 
 
 
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // 34.
 func average(xs []float64) float64 {
@@ -267,4 +300,8 @@ func first() {
 }
 func second() {
 	fmt.Println("2nd")
+}
+
+func zero(x int) {
+	x = 0
 }
