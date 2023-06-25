@@ -128,10 +128,12 @@ in File of Go:
     We can handle arun-time panic with the built-in recover function.
     recover stops the panic and returns the value that waspassed to the call to panic.
 46.
-    Pointers
-        
+    Pointers    
 47.
+    new
+    Another way to get a pointer is to use the built-in newfunction.
 48.
+    
 49.
 50.
 
