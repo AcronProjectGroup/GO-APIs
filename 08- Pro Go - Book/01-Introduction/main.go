@@ -12,17 +12,19 @@ func main() {
 
 	var theMake = make([]*Rsvp, 0)
 
-	theMake = append(theMake, &Rsvp{
-		Name:       "Sina",
-		Email:      "Email",
-		Phone:      "123",
-		WillAttend: true,
-	})
+	// theMake = append(theMake, &Rsvp{
+	// 	Name:       "Sina",
+	// 	Email:      "Email",
+	// 	Phone:      "123",
+	// 	WillAttend: true,
+	// })
+	theMake = append(theMake, &Rsvp{})
+	firstRsvp := theMake[0]
 
 	// Accessing the fields
 	if len(theMake) > 0 {
 		// Accessing the first element of the slice
-		firstRsvp := theMake[0]
+		// firstRsvp := theMake[0]
 
 		// Accessing the Name field
 		name := firstRsvp.Name
