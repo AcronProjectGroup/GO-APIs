@@ -1,33 +1,42 @@
 {
-    "workbench.colorTheme": "Bearded Theme Vivid Black",
-    "editor.guides.indentation": false,
-    "files.autoSave": "afterDelay",
-    "workbench.colorCustomizations": {
-        "editor.selectionBackground": "#ff0095",
-    },
-    "editor.tokenColorCustomizations": {
-      "comments": "#ff00aa"
-    },    
+  "workbench.colorTheme": "Bearded Theme Vivid Black",
+  "editor.guides.indentation": false,
+  "files.autoSave": "afterDelay",
+  "workbench.colorCustomizations": {
+      "editor.selectionBackground": "#ff0095",
+  },
+  "editor.tokenColorCustomizations": {
+    "comments": "#bc00e2",
+},  
+  "google-translate.firstLanguage": "far-ir",
+  "gopls": {
 
-    "google-translate.firstLanguage": "far-ir",
-    "gopls": {
+  },
+  "google-translate.secondLanguage": "per",
+  "vscodeGoogleTranslate.preferredLanguage": "Persian",
+  "vscodeGoogleTranslate.proxyHost": "120.0.0.1",
+  "vscodeGoogleTranslate.proxyPassword": "password",
+  "vscodeGoogleTranslate.proxyPort": "8080",
+  "vscodeGoogleTranslate.proxyUsername": "admin",
+    // Default source language for translation.
+  "translation.source-language": "auto",
 
-    },
-    "google-translate.secondLanguage": "per",
-    "vscodeGoogleTranslate.preferredLanguage": "Persian",
-    "vscodeGoogleTranslate.proxyHost": "120.0.0.1",
-    "vscodeGoogleTranslate.proxyPassword": "password",
-    "vscodeGoogleTranslate.proxyPort": "8080",
-    "vscodeGoogleTranslate.proxyUsername": "admin",
-      // Default source language for translation.
-    "translation.source-language": "auto",
+  // Default target language for translation.
+  "translation.target-language": "fa",
 
-    // Default target language for translation.
-    "translation.target-language": "fa",
-
-    // Specifies how to display the result of simple translation.
-    "translation.simple-display-mode": "notification",
-    "workbench.iconTheme": "bearded-icons",
-    "editor.minimap.autohide": true,
+  // Specifies how to display the result of simple translation.
+  "translation.simple-display-mode": "notification",
+  "workbench.iconTheme": "bearded-icons",
+  "editor.minimap.autohide": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.editorAssociations": {
+    "*.jpg": "imagePreview.previewEditor",
+    "*.png": "imagePreview.previewEditor",
+    "*.pdf": "pdf.preview",
+    "*.odt": "default"
+  },
+  "update.mode": "start",
 
 }
