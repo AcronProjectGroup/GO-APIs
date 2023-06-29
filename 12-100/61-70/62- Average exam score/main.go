@@ -6,6 +6,24 @@ package main
 import "fmt"
 
 func main() {
+	var examination [2]float64
+
+	Ayiinname := examination[0] 
+
+	Shahr := examination[1]
+
+
+	fmt.Println("emtehan Ayiinname? ")
+	fmt.Scan(&Ayiinname)
+
+	fmt.Println("emtehan Shahr? ")
+	fmt.Scan(&Shahr)
+
+
+	fmt.Println(Ayiinname, " -- ", Shahr)
+
+
+
 	var driving_Exam [2]float64 // the array
 
 	println("Enter the practical driving test score (1 to 20): ")
