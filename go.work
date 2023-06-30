@@ -1,5 +1,5 @@
 go 1.20
 
-use "./12-100/61-70/60-Hob Game"
-use "./12-100/61-70/62- Average exam score"
+use "./12-100 YouTube/61-70/60-Hob Game"
+use "./12-100 YouTube/61-70/62- Average exam score"
 use "./a1-a100/a3-multi-module workspaces"
