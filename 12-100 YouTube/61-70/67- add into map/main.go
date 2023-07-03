@@ -6,38 +6,41 @@ import (
 )
 
 func main() {
-	usernames := map[string]string{"Sammy": "sammy-shark", "Jamie": "mantisshrimp54"}
-
-	for {
-		fmt.Println("Enter a name:")
-
-		var name string
-		_, err := fmt.Scanln(&name)
-
-		if err != nil {
-			panic(err)
-		}
-
-		name = strings.TrimSpace(name)
-
-		if u, ok := usernames[name]; ok {
-			fmt.Printf("%q is the username of %q\n", u, name)
-			continue
-		}
-
-		fmt.Printf("I don't have %v's username, what is it?\n", name)
-
-		var username string
-		_, err = fmt.Scanln(&username)
-
-		if err != nil {
-			panic(err)
-		}
-
-		username = strings.TrimSpace(username)
-
-		usernames[name] = username
-
-		fmt.Println("Data updated.")
+	userNames := map[string]string{
+		"acronproject": "sinalale",
 	}
+
+	fmt.Println("Enter a name:")
+
+	var name string
+	_, err := fmt.Scanln(&name)
+	if err != nil {
+		panic(err)
+	}
+
+	name = strings.TrimSpace(name)
+
+	if keyOfUserNames, ok := userNames[name]; ok {
+		fmt.Printf("%q is the username of %q.\n", keyOfUserNames, name)
+	}
+	
+
+	fmt.Printf("I don't have %s's username, What is it name?\n", name)
+
+	var NewUserName string
+	_, err = fmt.Scanln(&NewUserName)
+	if err != nil {
+		panic(err)
+	}
+
+	NewUserName = strings.TrimSpace(NewUserName)
+
+	userNames[name] = NewUserName
+
+	fmt.Println("Data updated.")
+	fmt.Println("UserNames map:")
+	fmt.Printf("%q\n",userNames)
+
+
+
 }
