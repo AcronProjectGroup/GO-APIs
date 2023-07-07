@@ -3,16 +3,15 @@ package main
 func main() {
 
 	elements := make(map[string]string)
-	var elementPlus map[string]string
+	var elementsPlus map[string]string
 
+	elements["yek"] = "1"
+	elements["do"] = "2"
+	// elementsPlus["yek"] = "1"
 
-	elements["yek"] = "yek"
-	elements["do"] = "yek"
-	// elementPlus["yek"] = "yek"
-	
 	println("elements: ", len(elements))
-	println("elementPlus: ", len(elementPlus))
+	println("elements Plus: ", len(elementsPlus))
 
-
-	
 }
+
+
