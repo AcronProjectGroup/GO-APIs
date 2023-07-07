@@ -1,5 +1,10 @@
 go 1.20
 
 use "./12-100 YouTube/61-70/60-Hob Game"
+
 use "./12-100 YouTube/61-70/62- Average exam score"
-use "./a1-a100/a3-multi-module workspaces"
+
+use (
+	"./08- Pro Go - Book/04-Chapter 4/02-basicfeatures"
+	"./a1-a100/a3-multi-module workspaces"
+)
