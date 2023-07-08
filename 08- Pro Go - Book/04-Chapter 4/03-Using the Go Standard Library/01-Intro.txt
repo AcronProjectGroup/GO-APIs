@@ -1,0 +1,13 @@
+
+
+
+* GO provide wide > standard library, which is the term used to describe the built-in API.
+
+* standard library is presented as a set of packages that are part of the Go installer
+
+
+
+
+
+
+
