@@ -1,0 +1,19 @@
+
+
+What are they?
+    The basic operations are used for arithmetic, comparisons, and logical evaluation.
+
+Why are they useful?
+    it is difficult to write any code that doesn’t use them.
+
+
+
+
+
+
+
+
+
+
+
+
