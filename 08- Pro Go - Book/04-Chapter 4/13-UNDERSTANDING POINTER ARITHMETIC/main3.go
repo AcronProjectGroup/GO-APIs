@@ -9,18 +9,10 @@ func main() {
 	
 	first++
 	
+	*second++
+	
 	fmt.Println("First:", first)
 	
 	fmt.Println("Second:", *second)
-
-
-	var myFirst int
-
-	var mySecond = &myFirst
-
-	fmt.Println(*mySecond)
-
-
+	
 }
-
-
