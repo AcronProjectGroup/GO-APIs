@@ -14,11 +14,14 @@ func main() {
 	var myNewPointer *int
 	
 
-	fmt.Println(myNewPointer)
-	fmt.Println(&myNewPointer)
+	// fmt.Println(myNewPointer)
+	// fmt.Println(&myNewPointer)
 	// fmt.Println(*myNewPointer) // Error
 	
 
+	// myNewPointer = *&second
+
+	
 	myNewPointer = second
 	
 	*myNewPointer++
