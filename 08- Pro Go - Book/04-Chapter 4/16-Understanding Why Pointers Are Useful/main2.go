@@ -16,6 +16,3 @@ func main() {
 
 	fmt.Println(*secondPosition)
 }
-
-
-
