@@ -16,12 +16,12 @@ func main() {
 
 	myFirst := 100
 
-	var mySecond = &myFirst
+	var mySecond  = &myFirst
 
 	fmt.Println(*mySecond)
 
 	myFirst++
-	
+
 	fmt.Println(*mySecond)
 
 
