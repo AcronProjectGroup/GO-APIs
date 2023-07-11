@@ -8,3 +8,5 @@ use (
 	"./08- Pro Go - Book/04-Chapter 4/02-basicfeatures"
 	"./a1-a100/a3-multi-module workspaces"
 )
+
+use "0-0-Best Projects/03-PDF size reducer program golang"
