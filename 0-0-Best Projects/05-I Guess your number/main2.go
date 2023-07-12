@@ -1,33 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+
+)
 
 
 
 func main()  {
 
-	var correctGuess bool = false
+	rangeNumber := 6
 
-	for correctGuess != true {
-		getYesOrNo := make(map[string]bool) 
-		getYesOrNo["yes"] = true
-		getYesOrNo["Yes"] = true
-		getYesOrNo["YES"] = true
-		getYesOrNo["no"] = false
-		getYesOrNo["No"] = false
-		getYesOrNo["NO"] = false
-		
-		var getUserAnswer string
-		if getUserAnswer != "\n" {
-			for index := range getYesOrNo {
-				fmt.Println(index)
-			}
-		}
-
-		correctGuess = true
-	}
-
-	
+	nesf123 := rangeNumber / 2
+	rand.Seed(time.Now().UnixNano())
+	nesf123 += 1
+    fmt.Println(rand.Intn(rangeNumber - nesf123 +1) + nesf123)
 
 }
 
