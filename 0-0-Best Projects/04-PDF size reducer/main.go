@@ -1,3 +1,5 @@
+// https://pdfcpu.io/core/optimize
+
 package main
 
 import (
