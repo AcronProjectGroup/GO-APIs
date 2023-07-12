@@ -16,25 +16,23 @@ func main() {
 		"No":  false,
 		"NO":  false,
 	}
-	randNum := rand.Intn(int(endNumber) - int(startNumber) + 1)
-	if randNum == 0 {
-		randNum = rand.Intn(int(endNumber) - int(startNumber) + 1)
-	}
-
+	
 	// Step1:  Just get ENTER from User to first Step
 	var getEnter string = "\n"
 	fmt.Printf("Select a number between 0 to %.f, than press ENTER", endNumber)
 	getENTER(getEnter)
-
+	
 	for i := 0; i < 10; i++ {
+		randNum := rand.Intn(int(endNumber) - int(startNumber) + 1)
 		var getUserAnswer string
 		fmt.Printf("more than %d?\n", randNum)
 		fmt.Scanln(&getUserAnswer)
 
 		if getYesOrNo[getUserAnswer] == true {
-			// startNumber = endNumber / 2
-			// startNumber += 1
-			randNum = rand.Intn(int(endNumber) - int(startNumber) )
+			startNumber = endNumber / 2
+			startNumber += 1
+			fmt.Println("startNumber", startNumber)
+			fmt.Println("endNumber", endNumber)
 		}
 	}
 
