@@ -17,7 +17,7 @@ func main() {
 		"SMALLER": false,
 	}
 	min := 0
-	max := 10
+	max := 10000
 
 	// Step1:  Just get ENTER from User to first Step
 	fmt.Println("")
@@ -27,19 +27,22 @@ func main() {
 	var getEnter string = "\n"
 	getENTER(getEnter)
 
+	var counterGeuss int = 0
 	for {
 		// fmt.Println("min", min)
 		// fmt.Println("max", max)
 		rand.Seed(time.Now().UnixNano())
 		randomNumber := rand.Intn(max-min) + min
 
+		counterGeuss += 1
+		fmt.Printf("\nCount my guess: %d\n\n", counterGeuss)
 		fmt.Printf("I guess your number is %d.\n\nIf I wrong help me:\n\n", randomNumber)
 		fmt.Printf("Your chosen number is greater than %d or less? bigger/smaller\n", randomNumber)
 
 		var getUserAnswer string
 		fmt.Scanln(&getUserAnswer)
 
-		_, breakLoop := strconv.ParseInt(getUserAnswer, 0, 8)
+		_, breakLoop := strconv.ParseInt(getUserAnswer, 0, 10)
 		if breakLoop == nil {
 			break
 		}
@@ -54,6 +57,7 @@ func main() {
 			fmt.Println("")
 			fmt.Printf("I find your number!!! that is %d", min)
 			fmt.Println("")
+			fmt.Printf("\nCount my guess: %d\n\n", counterGeuss)
 			break
 		}
 	}
