@@ -1,0 +1,13 @@
+
+Introduction
+- '/nick <name>' --> Get a name, otherwise user will stay anonumous.
+- '/join <name>' --> Join a room, if room doesn't exist, the new room will be created. 
+                     User can be only in one room at the same time.
+- '/rooms'  -------> Show list of available rooms to join.
+- '/msg <msg>'  ---> broadcast message to everyone in room.
+- '/quit' ---------> disconnects from the chat server.
+
+
+
+
+
