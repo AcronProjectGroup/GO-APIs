@@ -54,159 +54,163 @@ in File of Go:
     array
     An array is a numbered sequence of elements of a sin-gle type with a fixed length.
 22.
-    value
+    target
 23.
-    range
 24.
+    value
+25.
+    range
+26.
     len(x)
     length
-25.
+27.
     slice
     A slice is a segment of an array. Like arrays slices areindexable and have a length. Unlike arrays this lengthis allowed to change.
-26.
+28.
     make
     f you want to create a slice you should use the built-inmake function
-27.
+29.
     slice functions:
     append
     add to slice
-28.
     [low : high]
     Another way to create slices is to use the [low : high]expression
-29.
+30.
     map
     A map is an unordered collection of key-value pairs.Also known as an associative array, a hash table or dictionary, maps are used to look up a value by its associated key.
-
-30.
-    slices maps 
 31.
+    slices maps 
+32.
     delete function
     We can also delete items from a map using the built-indelete function.
-32.
-    make map
 33.
+    make map
+34.
     function
     A function is an independent section of code that mapszero or more input parameters to zero or more outputparameters.   Functions   (also   known   as   procedures   orsubroutines) are often represented as a black box: (theblack box represents the function)
     func FunctionName(ParameterName ParameterType) ReturnType { body of function}
     e.g
     func getUserName(UserInput string) string { return UserInput }
-34.
+35.
     returning multiple values
     Go is also capable of returning multiple values from afunction
-35.
+36.
     variadic functions
     func add(args ...int) int {}
-36.
+37.
     closure
     It is possible to create functions inside of functions
-37.
-    increment  adds 1 to the variable  x  which is defined inthe  main  function's   scope. 
 38.
-    return function from a function
+    increment  adds 1 to the variable  x  which is defined inthe  main  function's   scope. 
 39.
+    return function from a function
+40.
     recursion
     Finally a function is able to call itself. Here is one wayto compute the factorial of a number
-40.
+41.
     defer
     Go has a special statement called defer which schedules a function call to be run after the function completes.
     is often used when resources need to be freed insome way. For example when we open a file we need to make sure to close it later. With defer:
-41.
+42.
     panic
     the  panicfunction   to   cause   a   run   time   error.  
-42.
+43.
     recover
     We can handle arun-time panic with the built-in recover function.
     recover stops the panic and returns the value that waspassed to the call to panic.
-43.
+44.
     Pointers    
     * &
-44.
+45.
     new
     Another way to get a pointer is to use the built-in newfunction.
-45.
+46.
     type
     In the provided Go code, "type" is a keyword used to define a new named type or alias. It allows you to create custom types with specific behaviors and characteristics.
     By using the "type" keyword, you can create your own named types or aliases that can be used throughout your code, providing better abstraction and type safety.
-46.
+47.
     struct
     A struct is a type which contains named fields.
     the keyword structto indicate that we are defining a struct type and alist of fields inside of curly braces.
     Each field has a name and a type. 
     For a struct zero means each of the fields is set to their correspond-ing zero value:
     (0 for ints, 0.0 for floats, "" for strings,nil for pointers, ...)
-47.
+48.
     new function struct
     e.g:
     c := new(Circle)
     This allocates memory for all the fields,
     sets each of them to their zero value and returns a pointer.
     (*Circle) More often we want to give each of the fieldsa value.
-48.
+49.
     method
     function receiver VS. function parameter
     The receiver can be of two types: 
     value receiver (func (t T) methodName()) 
     or pointer receiver (func (t *T) methodName()), 
     depending on whether the method modifies the receiver or not. 
-49.
-    interface
 50.
-    Concurrency
+    interface
 51.
-    Goroutines
+    Concurrency
 52.
+    Goroutines
+53.
     Channels
     chan
-53.
-    Channel Direction
 54.
+    Channel Direction
+55.
     Select
     case
-55.
-    buffered channels
 56.
+    buffered channels
+57.
     packages
     creating packages
-57.
-    testing
 58.
-    the core packages
+    testing
 59.
+    the core packages
+60.
     iput / output
     Go's io package.
-60.
+61.
     files & folders
     To open a file in Go use the Open function from the os package.
-61.
-    errors
 62.
+    errors
+63.
     containers & sort
     Go has several more collections available underneath the container package.
-63.
+64.
     hashes & cryptography
     Hash functions in Go are broken into two categories:
     cryptographic and non-crypto-graphic.
     The non-cryptographic hash functions can be found underneath the hash package and include adler32, crc32, crc64 and fnv.
-64.
-    servers
 65.
-    HTTP servers
+    servers
 66.
+    HTTP servers
+67.
     RPC
     The  net/rpc (remote procedure call) 
     and net/rpc/jsonrpc packages provide an easy way to expose methods 
     so they can be invoked over a network. (rather than just in the program running them)
-67.
-    parsing command line arguments
 68.
-    synchronization primitives
+    parsing command line arguments
 69.
+    synchronization primitives
+70.
     Mutexes
     A mutex (mutal exclusive lock) locks a section of code 
     to a single thread at a time and is used to protect 
     shared resources from non-atomic operations.
-70.
-    
+71.
+
+72.
+
+73.
 
 
 
