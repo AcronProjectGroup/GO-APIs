@@ -10,6 +10,7 @@ func main() {
 	var price = "€48.95"
 	
 	for index, char := range price {
+		fmt.Println((rune(char)))
 		fmt.Println(index, char, string(char))
 	}
 
