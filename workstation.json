@@ -37,6 +37,6 @@
     "*.pdf": "pdf.preview",
     "*.odt": "default"
   },
-  "update.mode": "start",
+  "update.mode": "start"
 
 }
