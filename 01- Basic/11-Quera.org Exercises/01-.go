@@ -40,7 +40,7 @@ func main() {
 	finalFirstUserInput , _:= strconv.Atoi(firstUserInput)
 	finalSecondUserInput, _ := strconv.Atoi(secondUserInput)
 
-	if finalFirstUserInput >= finalSecondUserInput && counter2 == 0{
+	if finalFirstUserInput > finalSecondUserInput && counter2 == 0{
 		fmt.Println("Yes")
 	} else if counter2 == 0 {
 		fmt.Println("No")
