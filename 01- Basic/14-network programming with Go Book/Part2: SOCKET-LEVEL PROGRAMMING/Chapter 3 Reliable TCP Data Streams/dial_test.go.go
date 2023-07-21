@@ -8,13 +8,14 @@ import (
 
 func TestDial(t *testing.T) {
 	// Create a listener on a random port.
-	listener, err := net.Listen("tcp", "127.0.0.3:")
+	listener, err := net.Listen("tcp", "127.0.0.1:")
 	if err != nil {
 		t.Fatal(err)
 	}
+
 	done := make(chan struct{})
 	go func() {
-		defer func ()  { done <- struct{}{} }()
+		defer func() { done <- struct{}{} }()
 		for {
 			conn, err := listener.Accept()
 			if err != nil {
@@ -22,11 +23,10 @@ func TestDial(t *testing.T) {
 				return
 			}
 			go func(c net.Conn) {
-				defer func(){
+				defer func() {
 					c.Close()
 					done <- struct{}{}
 				}()
-
 				buf := make([]byte, 1024)
 				for {
 					n, err := c.Read(buf)
@@ -41,13 +41,11 @@ func TestDial(t *testing.T) {
 			}(conn)
 		}
 	}()
-
-	con, err := net.Dial("tcp", listener.Addr().String())
+	conn, err := net.Dial("tcp", listener.Addr().String())
 	if err != nil {
 		t.Fatal(err)
 	}
-
-	con.Close()
+	conn.Close()
 	<-done
 	listener.Close()
 	<-done
