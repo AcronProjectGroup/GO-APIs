@@ -29,6 +29,7 @@ func main() {
 		"Kayak":      275,
 		"Lifejacket": 48.95,
 	}
+
 	for product, price := range products {
 		if price > 100 {
 			printPrice(product, price, calcWithTax)
@@ -36,4 +37,6 @@ func main() {
 			printPrice(product, price, calcWithoutTax)
 		}
 	}
+
+
 }
