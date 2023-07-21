@@ -1,3 +1,11 @@
+// Command:  go run LookupPort.go "tcp" "telnet"
+// Result:   Service port  23
+
+// Command:  go run LookupPort.go "tcp" "http"
+// Result:   Service port  23
+
+
+
 /* LookupPort
  */
 package main
