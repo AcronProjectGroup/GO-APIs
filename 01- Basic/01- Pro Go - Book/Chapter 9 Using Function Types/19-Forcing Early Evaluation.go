@@ -3,8 +3,7 @@ package main
 import "fmt"
 
 // aliases function for anothers
-type calcFunc func(float64) float64 
-
+type calcFunc func(float64) float64
 
 func printPrice(product string, price float64, calculator calcFunc) {
 	fmt.Println("Product:", product, "Price:", calculator(price))
@@ -13,8 +12,9 @@ func printPrice(product string, price float64, calculator calcFunc) {
 var prizeGiveaway = false
 
 func priceCalcFactory(threshold, rate float64) calcFunc {
+	fixedPrizeGiveway := prizeGiveaway
 	return func(price float64) float64 {
-		if prizeGiveaway {
+		if fixedPrizeGiveway {
 			return 0
 		} else if price > threshold {
 			return price + (price * rate)
@@ -33,12 +33,12 @@ func main() {
 		"Soccer Ball": 19.50,
 		"Stadium":     79500,
 	}
-	
+
 	prizeGiveaway = false
 	waterCalc := priceCalcFactory(100, 0.2)
 	prizeGiveaway = true
 	soccerCalc := priceCalcFactory(50, 0.1)
-	
+
 	for product, price := range watersportsProducts {
 		printPrice(product, price, waterCalc)
 	}
@@ -51,9 +51,10 @@ func main() {
 
 /* Output:
 
-Product: Lifejacket Price: 0
-Product: Kayak Price: 0
+Product: Kayak Price: 330
+Product: Lifejacket Price: 48.95
 Product: Soccer Ball Price: 0
 Product: Stadium Price: 0
+
 
 */

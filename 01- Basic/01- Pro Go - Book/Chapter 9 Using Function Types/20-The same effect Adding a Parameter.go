@@ -1,10 +1,10 @@
+// The same effect Adding a Parameter
+
 package main
 
 import "fmt"
 
-// aliases function for anothers
-type calcFunc func(float64) float64 
-
+type calcFunc func(float64) float64
 
 func printPrice(product string, price float64, calculator calcFunc) {
 	fmt.Println("Product:", product, "Price:", calculator(price))
@@ -12,9 +12,10 @@ func printPrice(product string, price float64, calculator calcFunc) {
 
 var prizeGiveaway = false
 
-func priceCalcFactory(threshold, rate float64) calcFunc {
+
+func priceCalcFactory(threshold, rate float64, zeroPrices bool) calcFunc {
 	return func(price float64) float64 {
-		if prizeGiveaway {
+		if zeroPrices {
 			return 0
 		} else if price > threshold {
 			return price + (price * rate)
@@ -28,32 +29,27 @@ func main() {
 		"Kayak":      275,
 		"Lifejacket": 48.95,
 	}
-
 	soccerProducts := map[string]float64{
 		"Soccer Ball": 19.50,
 		"Stadium":     79500,
 	}
-	
 	prizeGiveaway = false
-	waterCalc := priceCalcFactory(100, 0.2)
+	waterCalc := priceCalcFactory(100, 0.2, prizeGiveaway)
 	prizeGiveaway = true
-	soccerCalc := priceCalcFactory(50, 0.1)
-	
+	soccerCalc := priceCalcFactory(50, 0.1, prizeGiveaway)
 	for product, price := range watersportsProducts {
 		printPrice(product, price, waterCalc)
 	}
-
 	for product, price := range soccerProducts {
 		printPrice(product, price, soccerCalc)
 	}
-
 }
 
 /* Output:
 
-Product: Lifejacket Price: 0
-Product: Kayak Price: 0
-Product: Soccer Ball Price: 0
+Product: Kayak Price: 330
+Product: Lifejacket Price: 48.95
 Product: Stadium Price: 0
+Product: Soccer Ball Price: 0
 
 */
