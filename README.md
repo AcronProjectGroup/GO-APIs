@@ -20,12 +20,7 @@ My learning started in 2022 and continues till today.
 |   Guess-the-Number-Game
 |   tag 0.1.04:
 |   Refrustructure-Guess-the-Number-Game
+|   tag 0.1.04:
+|   Refrustructure-Guess-the-Number-Game
 
-
-### My training projects are in this section
-
-|Basic               |Issue                      |
-|--------------------|---------------------------|
-|   006-animation.go:| for animation in Terminal |
-|                    |                           |  
 
