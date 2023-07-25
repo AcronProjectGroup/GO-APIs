@@ -10,3 +10,5 @@ use (
 )
 
 use "02- Projects/05 OS properties/02-PDF size reducer program golang"
+
+use "01- Basic/01- Pro Go - Book/Chapter 11 Using Methods/16"
