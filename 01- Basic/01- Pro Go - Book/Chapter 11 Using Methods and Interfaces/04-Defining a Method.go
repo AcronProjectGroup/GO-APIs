@@ -7,6 +7,11 @@ type Product struct {
 	price          float64
 }
 
+type ProductExpired struct {
+	name, category string
+	dateExpired float64
+}
+
 func newProduct(name, category string, price float64) *Product {
 	return &Product{name, category, price}
 }
@@ -16,7 +21,8 @@ func newProduct(name, category string, price float64) *Product {
 // but have the addition of a receiver,
 // which denotes a special parameter, 
 // which is the type on which the method operates.
-func (product *Product) printDetails() {
+// Methods are invoked through a value whose type matches the receiver.
+func (product *Product, ) printDetails() {
 	fmt.Println("Name:", product.name, "Category:", product.category,
 		"Price", product.price)
 }

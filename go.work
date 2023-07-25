@@ -9,4 +9,4 @@ use (
 	"./01- Basic/07- a1-a100/a3-multi-module workspaces"
 )
 
-use "02- Projects/03-PDF size reducer program golang"
+use "02- Projects/05 OS properties/02-PDF size reducer program golang"
