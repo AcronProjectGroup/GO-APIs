@@ -62,3 +62,13 @@ func main() {
 	}
 
 }
+
+/* Output:
+
+Name: Kayak Category: Watersports Price 330
+Name: Lifejacket Category: Watersports Price 48.95
+Name: Soccer Ball Category: Soccer Price 19.5
+Supplier: Acme Co City: New York City
+Supplier: BoatCo City: Chicago
+
+*/
