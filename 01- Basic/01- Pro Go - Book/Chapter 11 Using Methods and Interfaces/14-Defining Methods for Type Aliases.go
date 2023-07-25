@@ -23,10 +23,11 @@ type ProductList []Product
 func (products *ProductList) calcCategoryTotals() map[string]float64 {
 	totals := make(map[string]float64)
 	for _, p := range *products {
-		totals[p.category] = totals[p.category] + p.price
+		totals[p.category] += p.price
 	}
 	return totals
 }
+
 
 func main() {
 	products := ProductList{
@@ -35,9 +36,15 @@ func main() {
 		{"Soccer Ball", "Soccer", 19.50},
 	}
 
-
+	
+	
 	for category, total := range products.calcCategoryTotals() {
 		fmt.Println("Category: ", category, "Total:", total)
 	}
-
+	
+	// totals := make(map[string]float64)
+	// for _, p := range *ProductList {
+	// 	totals[p.category] = totals[p.category] + p.price
+	// }
+	
 }
