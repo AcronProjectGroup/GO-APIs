@@ -1,0 +1,33 @@
+
+learning Go language:
+    https://www.practical-go-lessons.com/
+    https://www.youtube.com/watch?v=E_k1k5sPnIo&list=PLfwcrqlHxOT-Ef7o7qBx0qGqL61AreYKE
+    https://tomaszs2.medium.com/5-great-go-projects-safe-browsing-experience-digital-wallet-and-engaging-email-campaigns-vol-c13f763fc491
+    https://github.com/golang/go/wiki/CodeReviewComments
+    http://projecteuler.net/
+    https://gowebexamples.com/
+    https://golangforall.com/en/
+    https://gobyexample.com/
+    https://golangbot.com/
+    https://www.educative.io/
+    https://github.com/golang/go/wiki#getting-started-with-go
+    https://awesome-go.com/
+    https://golangdocs.com/
+    https://awesome-go.com/security/
+    https://awesome-go.com/networking/
+    https://awesome-go.com/
+    https://boot.dev
+    https://awesome-go.com/distributed-systems/
+    https://golangdocs.com/golang-mux-router
+    https://github.com/gorilla#gorilla-toolkit
+    https://www.gorillatoolkit.org/
+    https://www.educative.io/courses/concurrency-in-go
+    https://www.educative.io/courses/exploring-mastering-go-featureset
+    https://www.educative.io/courses/prof-command-line-programs-go
+    https://www.educative.io/courses/go-brain-teasers
+    https://www.educative.io/courses/the-way-to-go
+    https://awesome-go.com
+
+
+Account Portfolio:
+    https://avelino.run/
