@@ -5,10 +5,7 @@ use "./12-100 YouTube Farsi/61-70/60-Hob Game"
 use "./12-100 YouTube Farsi/61-70/62- Average exam score"
 
 use (
+	"./01- Basic/01- Pro Go - Book/Chapter 11-2 Using Interface/16"
 	"./01- Basic/01- Pro Go - Book/Chapter 4/02-basicfeatures"
 	"./01- Basic/07- a1-a100/a3-multi-module workspaces"
 )
-
-use "02- Projects/05 OS properties/02-PDF size reducer program golang"
-
-use "01- Basic/01- Pro Go - Book/Chapter 11 Using Methods/16"
