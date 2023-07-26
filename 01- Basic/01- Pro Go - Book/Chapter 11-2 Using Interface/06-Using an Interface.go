@@ -15,5 +15,9 @@ parameter types, and result types.
 like:
 	Implementing an Interface in the service.go File
 
+Interfaces describe only methods and not fields. 
+For this reason, interfaces often specify methods that
+return values stored in struct fields, such as the getName method
+
 */
 package main
