@@ -1,0 +1,6 @@
+Interfaces can be useful, 
+but they can present problems, 
+and it is often useful to be able to access the dynamic type directly, 
+which is known as type narrowing, 
+the process of moving from a less precise type to a more precise type.
+A type assertion is used to access the dynamic type of an interface value
