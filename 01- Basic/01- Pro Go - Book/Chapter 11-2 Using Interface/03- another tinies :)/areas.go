@@ -14,14 +14,8 @@ func (cityName Area) returnCityName() string {
 	return cityName.CityName
 }
 
-func calculateCityAndCountyExist(area Area) float64 {
-	Return_City := area.returnCityName()
-	Return_Country := area.CountryName
-
-	if Return_City == Return_Country {
-		return area.CountryArea
-	} else {
-		return 0
-	}
-
+func (countryArea Area) getCountryArea() float64 {
+	return countryArea.CountryArea
 }
+
+

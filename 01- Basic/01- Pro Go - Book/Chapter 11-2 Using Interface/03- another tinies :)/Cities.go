@@ -1,29 +1,23 @@
+
 package main
 
 type City struct {
-	CityName string
 	CountryName string
+	CityName string
 }
 
-func (city City) returnCityName() string {
-	return city.CityName
+func (countryName City) returnCountryName() string {
+	return countryName.CountryName
 }
 
-func (country City) return_Country_With_City_Name() string {
-	return country.CountryName
+func (cityName City) returnCityName() string {
+	return cityName.CityName
 }
 
-func calculateCityAndCountyExist(city City) bool {
-	Return_City := city.returnCityName()
-	Return_Country := city.CountryName
-	
-	if Return_City == Return_Country {
-		return true
-	} else {
-		return false
-	}
-
+func (city City)getCountryArea() float64 {
+	return 0
 }
+
 
 
 
