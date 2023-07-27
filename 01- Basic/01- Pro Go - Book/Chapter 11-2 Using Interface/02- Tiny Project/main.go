@@ -22,17 +22,10 @@ type Account struct {
 func main() {
 
 	product := Product{"Kayak", "Watersports", 275}
-	
 	var expense Expense = product
-	
 	product.price = 100
-	
 	fmt.Println("Product field value:", product.price)
-	
 	fmt.Println("Expense method result:", expense.getCost(false))
-
-	
-	
 	
 	// ----------------------------------------------------------------------------------------
 	
