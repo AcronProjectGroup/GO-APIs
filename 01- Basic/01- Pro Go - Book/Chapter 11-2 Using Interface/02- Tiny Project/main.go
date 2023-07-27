@@ -24,14 +24,19 @@ func main() {
 	for _, expense := range expenses {
 		fmt.Println("Expense:", expense.getName(), "Cost:", expense.getCost(true))
 	}
+	/* Output:
+	Expense: Kayak Cost: 275
+	Expense: Boat Cover Cost: 1074
+	*/
+	
 	
 	fmt.Println("Total:", calcTotal(expenses))
+	/* Ouput :
+	Expense: Kayak Cost: 275
+	Expense: Boat Cover Cost: 1074
+	Total: 1349
+	*/
 
 }
 
-/* Output:
 
-Expense: Kayak Cost: 275
-Expense: Boat Cover Cost: 1074
-
-*/
