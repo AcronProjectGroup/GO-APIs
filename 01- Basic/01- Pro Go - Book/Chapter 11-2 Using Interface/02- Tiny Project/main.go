@@ -38,8 +38,8 @@ func main() {
 	
 	
 	// A pointer to the struct value can be used when making the assignment to the interface variable
-	var expense2 Expense = &product
-	fmt.Println("Expense method result:", expense2.getCost(false))
+	// var expense2 Expense = &product
+	// fmt.Println("Expense method result:", expense2.getCost(false))
 	
 	
 	
