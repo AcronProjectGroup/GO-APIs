@@ -21,11 +21,27 @@ type Account struct {
 
 func main() {
 
+
+	/*
+	This example creates a Product struct value, assigns it to an Expense variable, alters the value of the
+	struct value’s price field, and writes out the field value directly and via an interface method. Compile and
+	execute the code
+	The Product value was copied when it was assigned to the Expense variable, which means that the
+	change to the price field does not affect the result from the getCost method.
+	*/
 	product := Product{"Kayak", "Watersports", 275}
 	var expense Expense = product
 	product.price = 100
 	fmt.Println("Product field value:", product.price)
 	fmt.Println("Expense method result:", expense.getCost(false))
+	// ----------------------------------------------------------------------------------------
+	
+	
+	// A pointer to the struct value can be used when making the assignment to the interface variable
+	var expense2 Expense = &product
+	fmt.Println("Expense method result:", expense2.getCost(false))
+	
+	
 	
 	// ----------------------------------------------------------------------------------------
 	
