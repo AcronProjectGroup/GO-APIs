@@ -20,6 +20,22 @@ type Account struct {
 }
 
 func main() {
+
+	product := Product{"Kayak", "Watersports", 275}
+	
+	var expense Expense = product
+	
+	product.price = 100
+	
+	fmt.Println("Product field value:", product.price)
+	
+	fmt.Println("Expense method result:", expense.getCost(false))
+
+	
+	
+	
+	// ----------------------------------------------------------------------------------------
+	
 	account := Account{
 		accountNumber: 12345,
 		expenses: []Expense{
@@ -50,10 +66,6 @@ func main() {
 	}
 	fmt.Println("Total:", calcTotal(account.expenses))
 
-
-
-
-
 	// ----------------------------------------------------------------------------------------
 	for _, expense := range expenses {
 		fmt.Println("Expense:", expense.getName(), "Cost:", expense.getCost(true))
@@ -62,9 +74,7 @@ func main() {
 	Expense: Kayak Cost: 275
 	Expense: Boat Cover Cost: 1074
 	*/
-	
-	
-	
+
 	// ----------------------------------------------------------------------------------------
 	fmt.Println("Total:", calcTotal(expenses))
 	/* Ouput :
