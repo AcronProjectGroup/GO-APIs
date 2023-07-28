@@ -25,7 +25,7 @@ func (sentences Sentences) CommonGermanSlang() map[string]string {
 		"Die Gelegenheit ist vertan":      "Meaning: The opportunity is gone.\nThat ship has sailed.\nLiteral: The train has already left.",
 		"Innerer Schweinehund":            "Meaning: Devil on your shoulder.\nLiteral: Inner pig-dog.\nThe German people's “inner pig-dog” is the voice in one's head that steers you wrong.",
 		"Morgenstund hat Gold im Mund":    "Meaning: The early bird gets the worm\nLiteral: Morning hours have gold in the mouth",
-		"Hunde, die bellen, beißen nicht": "Meaning: His bark is worse than his bite\nLiteral: Dogs that bark don’t bite",
+		"Hunde, die bellen, beißen nicht": "Meaning: His bark is worse than his bite\nLiteral: Dogs that bark don't bite",
 		// "":                                "",
 		// "":                                "",
 		// "":                                "",
@@ -37,4 +37,5 @@ func (sentences Sentences) CommonGermanSlang() map[string]string {
 		// "":                                "",
 		// "":                                "",
 	}
+	return sentences.Sentences
 }
