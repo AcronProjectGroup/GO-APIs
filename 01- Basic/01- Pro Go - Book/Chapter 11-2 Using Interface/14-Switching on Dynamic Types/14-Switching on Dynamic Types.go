@@ -13,12 +13,8 @@ type Expense interface {
 	getCost2(annual bool) float64
 }
 
+
 func main() {
-	expenses := []Expense{
-		Service4{"Boat Cover", 12, 89.50, []string{}},
-		Service4{"Paddle Protect", 12, 8, []string{}},
-		&Product4{"Kayak", "Watersports", 275},
-	}
 	for _, expense := range expenses {
 		switch value := expense.(type) {
 		case Service4:
@@ -33,3 +29,8 @@ func main() {
 	}
 }
 
+var expenses = []Expense{
+	Service4{"Boat Cover", 12, 89.50, []string{}},
+	Service4{"Paddle Protect", 12, 8, []string{}},
+	&Product4{"Kayak", "Watersports", 275},
+}
