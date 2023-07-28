@@ -5,7 +5,7 @@ type Sentences struct {
 } 
 
 
-func (sentences Sentences) ReturnSentences() map[string]string {
+func (sentences Sentences) CommonGermanSlang() map[string]string {
 	sentences.Sentences = map[string]string{
 		"Common German Slang":"Allgemeiner deutscher Slang",
 		"Moin, moin":"Morning - Hi - Hello - Good day - How are you?",
@@ -17,8 +17,8 @@ func (sentences Sentences) ReturnSentences() map[string]string {
 		"Das ist nicht mein Bier":"Meaning: Not my problem\nLiteral: That's not my beer",
 		"das ist dein Bier":"this is your beer - It's all yours",
 		"Abwarten und Tee trinken":"Just wait and see",
-		"":"",
-		"":"",
+		"Ich verstehe nur Bahnhof":"Meaning: I don't understand any of that - It's all Greek to me\nLiteral: I only understand train station",
+		"Es ist mir Wurst":"",
 		"":"",
 		"":"",
 		"":"",
