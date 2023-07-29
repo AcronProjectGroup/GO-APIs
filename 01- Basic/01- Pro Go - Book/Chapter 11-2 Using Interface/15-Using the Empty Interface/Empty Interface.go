@@ -54,3 +54,16 @@ func main() {
 		}
 	}
 }
+
+/* Output:
+
+Product Pointer: Kayak Price: 275
+Product: Lifejacket Price: 48.95
+Service: Boat Cover Price: 1074
+Person: Alice City: London
+Person Pointer: Bob City: New York
+Built-in type: This is a string
+Built-in type: 100
+Built-in type: true
+
+*/
