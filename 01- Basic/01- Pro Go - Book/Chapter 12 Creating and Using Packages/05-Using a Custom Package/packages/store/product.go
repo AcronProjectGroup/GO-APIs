@@ -12,7 +12,7 @@ func (p *Product) Price() float64 {
 	return p.price
 }
 func (p *Product) SetPrice(newPrice float64) {
-	p.price = newPrice
+	p.price += newPrice 
 }
 
 
