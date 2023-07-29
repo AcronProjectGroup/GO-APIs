@@ -1,0 +1,1 @@
+Packages make it possible to add structure to a project so that related features are grouped together.
