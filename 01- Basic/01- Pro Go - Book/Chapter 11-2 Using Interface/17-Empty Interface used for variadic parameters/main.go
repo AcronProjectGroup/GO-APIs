@@ -45,3 +45,18 @@ func main() {
 	}
 	processItems(data...)
 }
+
+
+/* Output:
+
+ProductZ1 Pointer: Kayak Price: 275
+ProductZ1: Lifejacket Price: 48.95
+ServiceZ1: Boat Cover Price: 1074
+Person: Alice City: London
+Person Pointer: Bob City: New York
+Built-in type: This is a string
+Built-in type: 100
+Built-in type: true
+
+
+*/
