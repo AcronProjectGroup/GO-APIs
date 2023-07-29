@@ -8,19 +8,19 @@ package main
 
 import "fmt"
 
-type Expense interface {
+type Expense2 interface {
 	getName() string
 	getCost(annual bool) float64
 }
 
-func main() {
+func mainAnother() {
 	expenses := []Expense{
-		Service{"Boat Cover", 12, 89.50, []string{}},
-		Service{"Paddle Protect", 12, 8, []string{}},
-		&Product{"Kayak", "Watersports", 275},
+		Service3{"Boat Cover", 12, 89.50, []string{}},
+		Service3{"Paddle Protect", 12, 8, []string{}},
+		&Product2{"Kayak", "Watersports", 275},
 	}
 	for _, expense := range expenses {
-		s := expense.(Service)
+		s := expense.(Service3)
 		fmt.Println("Service:", s.description, "Price:",
 			s.monthlyFee*float64(s.durationMonths))
 	}
