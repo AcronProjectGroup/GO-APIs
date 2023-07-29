@@ -1,0 +1,38 @@
+
+he Name and Category properties have an initial capital letter.
+Go has an unusual approach to access control. 
+Instead of relying on dedicated keywords, like public
+and private, Go examines the first letter of the names given 
+to the features in a code file, such as types,
+functions, and methods. 
+If the first letter is lowercase, 
+then the feature can be used only within the package that defines it.
+
+Features are exported for use outside of the package by giving them an uppercase first letter.
+
+The names of the Name and 
+Category fields also start with an uppercase letter, which means they are also exported.
+
+The price field has a lowercase first letter, 
+which means that it can be accessed only within the store package.
+
+The compiler enforces the package export rules, which means that an error will be generated if the
+price field is accessed outside of the store package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
