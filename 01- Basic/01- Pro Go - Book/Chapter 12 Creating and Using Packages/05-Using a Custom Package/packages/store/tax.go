@@ -40,6 +40,12 @@ var categoryMaxPrices = map[string]float64{
 	and it is defined without parameters and a result.
 	The init function is called automatically
 	and provides an opportunity to prepare the package for use.
+
+	The init function is not a regular Go function 
+	and cannot be invoked directly. And, unlike regular
+	functions, a single file can define multiple init functions, 
+	all of which will be executed.
+	
 */
 func init() {
 	for category, price := range categoryMaxPrices {
