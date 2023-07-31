@@ -1,0 +1,11 @@
+The most common use for initialization functions is 
+to perform calculations that are difficult to perform 
+or that require duplication to perform
+متداول ترین استفاده برای توابع مقداردهی اولیه، 
+انجام محاسباتی است که انجام آنها دشوار است 
+یا برای انجام آنها نیاز به تکرار دارند.
+
+
+
+
+
