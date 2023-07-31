@@ -1,0 +1,11 @@
+The compiler doesn’t differentiate between names assigned 
+to variables and names assigned to types and reports an error.
+
+you must ensure that the top-level features defined in a package are given unique names. 
+
+Names do not have to be unique across packages or inside of functions and methods.
+
+
+
+
+

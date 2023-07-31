@@ -1,0 +1,32 @@
+
+One way to deal with package name conflicts is to use an alias, 
+which allows a package to be accessed using a different name
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
