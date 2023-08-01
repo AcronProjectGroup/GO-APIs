@@ -22,7 +22,7 @@ import (
 	. "UsingCustomPackage05/packages/fmt"
 	"UsingCustomPackage05/packages/store"
 	"UsingCustomPackage05/packages/store/cart"
-	"github.com/fatih/color"
+	"github.com/fatih/color" 
 )
 
 
@@ -35,7 +35,11 @@ func main() {
 		Products:     []store.Product{*product},
 	}
 
-	color.Green("Name: " + cart.CustomerName)
-	color.Cyan("Total: " + ToCurrency(cart.GetTotal()))
+	color.Green("\nName: " + cart.CustomerName)
+	color.Cyan("\nTotal: " + ToCurrency(cart.GetTotal()))
+	color.Blue("\nSINA LALEHBAKHSH")
+	color.BlueString("\nThis is Blue String")
+	println()
+
 
 }

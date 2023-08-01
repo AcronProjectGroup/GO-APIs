@@ -1,11 +1,12 @@
-
-
 package data
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/fatih/color" 
+)
 
 func init() {
-	fmt.Println(("data.go init function invoked"))
+	color.Magenta("\ndata.go init function invoked")
 }
 
 
@@ -16,17 +17,17 @@ func GetData() []string {
 
 
 
-func init() {
-	fmt.Println(("data.go init function invoked"))
-}
+// func init() {
+// 	fmt.Println(("data.go init function invoked"))
+// }
 
 
-func init() {
-	fmt.Println(("data.go init function invoked"))
-}
+// func init() {
+// 	fmt.Println(("data.go init function invoked"))
+// }
 
 
-func init() {
-	fmt.Println(("data.go init function invoked"))
-}
+// func init() {
+// 	fmt.Println(("data.go init function invoked"))
+// }
 
