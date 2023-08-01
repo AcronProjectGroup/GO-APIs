@@ -8,7 +8,13 @@ import (
 
 
 func main() {
+
+	// Constructors should be used whenever they are defined because they make it easier to manage changes
+	// in the way that values are created and because they ensure that fields are properly initialized.
+	// Constructor:
 	kayak := store.NewProduct("Kayak", "Watersports", 275)
+
+	// struct:
 	lifejacket := &store.Product{Name: "Lifejacket", Category: "Watersports"}
 	
 
