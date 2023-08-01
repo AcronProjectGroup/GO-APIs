@@ -1,0 +1,18 @@
+Because Go doesn’t support classes, 
+it doesn’t support class constructors either.
+
+
+a common convention is to define 
+a constructor function whose name is New<Type>, such as NewProduct
+and that allows values to be provided for all fields, 
+even those that have not been exported.
+
+
+
+As with other code features, 
+the capitalization of the first letter of the constructor function name 
+determines whether it is exported outside of the package.
+
+
+
+
