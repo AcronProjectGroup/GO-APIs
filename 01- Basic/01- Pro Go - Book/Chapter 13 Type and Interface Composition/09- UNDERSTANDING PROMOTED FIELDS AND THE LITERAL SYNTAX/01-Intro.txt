@@ -1,0 +1,25 @@
+Go applies its special treatment to promoted fields 
+once a struct value has been created. So, for
+
+example, if I use the NewBoat function to create a value like this:
+    boat := store.NewBoat("Kayak", 275, 1, false)
+
+then I can read and assign values to promoted fields, like this:
+    boat.Name = "Green Kayak"
+
+But this feature isn’t available when using 
+the literal syntax to create values in the first place, meaning
+that I can’t replace the NewBoat function, like this:
+    boat := store.Boat { Name: "Kayak", Category: "Watersports",
+        Capacity: 1, Motorized: false }
+
+The compiler won’t allow values to be assigned directly 
+and reports an “unknown field” error when
+the code is compiled. 
+If you do use the literal syntax, 
+then you must assign a value to the nested field, like this:
+    boat := store.Boat { Product: &store.Product{ Name: "Kayak",
+        Category: "Watersports"}, Capacity: 1, Motorized: false }
+
+
+    
