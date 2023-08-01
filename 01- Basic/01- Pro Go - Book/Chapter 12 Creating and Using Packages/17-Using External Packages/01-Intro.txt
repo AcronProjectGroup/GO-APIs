@@ -1,0 +1,36 @@
+Projects can be extended using packages developed by third parties.
+
+Packages are downloaded and installed using the go get command.
+
+go get github.com/fatih/color@v1.10.0
+    Output:
+    go: downloading github.com/fatih/color v1.10.0
+    go: downloading github.com/mattn/go-isatty v0.0.12
+    go: downloading github.com/mattn/go-colorable v0.1.8
+    go: downloading golang.org/x/sys v0.0.0-20200223170610-d5e6a3e2c0ae
+    go: added github.com/fatih/color v1.10.0
+    go: added github.com/mattn/go-colorable v0.1.8
+    go: added github.com/mattn/go-isatty v0.0.12
+    go: added golang.org/x/sys v0.0.0-20200223170610-d5e6a3e2c0ae
+
+
+
+
+Packages are distributed as source code, 
+which allows them to be compiled for 
+the platform on which you are working.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
