@@ -14,7 +14,7 @@ use (
 	"./01- Basic/01- Pro Go - Book/Chapter 11-2 Using Interface/16-Using the Empty Interface for Function Parameters"
 	"./01- Basic/01- Pro Go - Book/Chapter 11-2 Using Interface/17-Empty Interface used for variadic parameters"
 	"./01- Basic/01- Pro Go - Book/Chapter 12 Creating and Using Packages/05-Using a Custom Package"
-	"./01- Basic/01- Pro Go - Book/Chapter 13 Type and Interface Composition/01-Intro"
+	"./01- Basic/01- Pro Go - Book/Chapter 13 Type and Interface Composition"
 	"./01- Basic/01- Pro Go - Book/Chapter 4/02-basicfeatures"
 	"./01- Basic/07- a1-a100/a3-multi-module workspaces"
 	"./04- Projects/06 CLI/04-DuolinGo"

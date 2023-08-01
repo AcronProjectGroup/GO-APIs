@@ -8,6 +8,13 @@ type Product struct {
 	price          float64
 }
 
+// Defining a Constructor:
+func NewProduct(name, category string, price float64) *Product {
+	return &Product{name, category, price}
+}
+
+
+
 // There is also a method named Price, which accepts a float64 parameter and uses it with the
 // price field to calculate a tax-inclusive price.
 func (p *Product) Price(taxRate float64) float64 {
@@ -15,8 +22,4 @@ func (p *Product) Price(taxRate float64) float64 {
 }
 
 
-// Defining a Constructor:
-func NewProduct(name, category string, price float64) *Product {
-	return &Product{name, category, price}
-}
 
