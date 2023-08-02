@@ -1,5 +1,5 @@
-package main
-
+package main // Ctrl + .
+   
 import "fmt"
 
 type YekAdam struct {

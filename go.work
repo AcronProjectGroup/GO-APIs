@@ -5,6 +5,7 @@ use "./12-100 YouTube Farsi/61-70/60-Hob Game"
 use "./12-100 YouTube Farsi/61-70/62- Average exam score"
 
 use (
+	"./01- Basic/01- Pro Go - Book/03- Chapter 4/02-basicfeatures"
 	"./01- Basic/01- Pro Go - Book/12- Chapter 11-2 Using Interface/02- Tiny Project"
 	"./01- Basic/01- Pro Go - Book/12- Chapter 11-2 Using Interface/03- another tinies :)"
 	"./01- Basic/01- Pro Go - Book/12- Chapter 11-2 Using Interface/10-Comparing Interface Values"
@@ -15,7 +16,7 @@ use (
 	"./01- Basic/01- Pro Go - Book/12- Chapter 11-2 Using Interface/17-Empty Interface used for variadic parameters"
 	"./01- Basic/01- Pro Go - Book/13- Chapter 12 Creating and Using Packages/05-Using a Custom Package"
 	"./01- Basic/01- Pro Go - Book/14- Chapter 13 Type and Interface Composition"
-	"./01- Basic/01- Pro Go - Book/03- Chapter 4/02-basicfeatures"
 	"./01- Basic/07- a1-a100/a3-multi-module workspaces"
 	"./04- Projects/06 CLI/04-DuolinGo"
+	"./12-100 YouTube Farsi/61-70/72- struct and function together"
 )
