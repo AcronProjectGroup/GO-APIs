@@ -1,10 +1,6 @@
 // Go uses interfaces to describe methods that can be implemented by
 // multiple types.
 
-
-
-
-
 // Using an Interface
 package main
 
