@@ -13,8 +13,6 @@ func NewProduct(name, category string, price float64) *Product {
 	return &Product{name, category, price}
 }
 
-
-
 // There is also a method named Price, which accepts a float64 parameter and uses it with the
 // price field to calculate a tax-inclusive price.
 func (p *Product) Price(taxRate float64) float64 {
@@ -23,3 +21,17 @@ func (p *Product) Price(taxRate float64) float64 {
 
 
 
+// An alternative solution is to define interface methods that provide access to the property values. This
+// can be done by adding methods to an existing interface or by defining a separate interface
+type Describable interface {
+	GetName() string
+	GetCategory() string
+}
+
+func (p *Product) GetName() string {
+	return p.Name
+}
+
+func (p *Product) GetCategory() string {
+	return p.Category
+}
