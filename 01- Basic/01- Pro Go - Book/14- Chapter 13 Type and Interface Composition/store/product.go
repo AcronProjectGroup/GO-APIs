@@ -26,6 +26,10 @@ func (p *Product) Price(taxRate float64) float64 {
 type Describable interface {
 	GetName() string
 	GetCategory() string
+	
+	// The result of composing interfaces is a union of the method defined by the enclosing
+	// and enclosed types.
+	ItemForSale
 }
 
 func (p *Product) GetName() string {
