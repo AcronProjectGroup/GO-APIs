@@ -16,6 +16,7 @@ use (
 	"./01- Basic/01- Pro Go - Book/12- Chapter 11-2 Using Interface/17-Empty Interface used for variadic parameters"
 	"./01- Basic/01- Pro Go - Book/13- Chapter 12 Creating and Using Packages/05-Using a Custom Package"
 	"./01- Basic/01- Pro Go - Book/14- Chapter 13 Type and Interface Composition"
+	"./01- Basic/01- Pro Go - Book/15- Chapter 14 Goroutines and Channels"
 	"./01- Basic/07- a1-a100/a3-multi-module workspaces"
 	"./04- Projects/06 CLI/04-DuolinGo"
 	"./12-100 YouTube Farsi/61-70/72- struct and function together"
