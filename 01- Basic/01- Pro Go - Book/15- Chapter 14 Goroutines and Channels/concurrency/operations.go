@@ -6,7 +6,10 @@ func CalcStoreTotal(data ProductData) {
 	var storeTotal float64
 
 	for category, group := range data {
-		storeTotal += group.TotalPrice(category)
+		//	Go allows the developer to create additional goroutines, 
+		// which execute code at the same time as the main
+		// goroutine. Go makes it easy to create new goroutines
+		go group.TotalPrice(category)	
 	}
 
 	fmt.Println("Total:", ToCurrency(storeTotal))
