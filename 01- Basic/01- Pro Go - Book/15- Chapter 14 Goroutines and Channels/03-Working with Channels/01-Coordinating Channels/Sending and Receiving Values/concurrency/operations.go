@@ -25,10 +25,11 @@ func CalcStoreTotal(data ProductData) {
 func (group ProductGroup) TotalPrice(category string, resultChannel chan float64) {
 	var total float64
 	for _, p := range group {
-		fmt.Println(category, "product:", p.Name)
+		// fmt.Println(category, "product:", p.Name)
 		total += p.Price
 		time.Sleep(time.Second)
 	}
-	fmt.Println(category, "subtotal:", ToCurrency(total))
+	fmt.Println(category, "channel sending", ToCurrency(total))
 	resultChannel <- total
+	fmt.Println(category, "channel send complete")
 }
