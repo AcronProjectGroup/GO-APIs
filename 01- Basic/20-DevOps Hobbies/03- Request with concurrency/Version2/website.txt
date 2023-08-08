@@ -11,6 +11,3 @@ https://zoom.us/
 https://outlook.live.com/owa/
 https://greensock.com/gsap/
 https://netflix.com/
-https://www.office.com/
-https://www.office.com/
-https://careers.microsoft.com/v2/global/en/home.html
