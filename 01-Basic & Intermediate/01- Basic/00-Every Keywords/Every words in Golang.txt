@@ -164,35 +164,36 @@ in File of Go:
     Select
     case
 56.
-    buffered channels
+    goto
 57.
+    buffered channels
+58.
     packages
     creating packages
-58.
-    testing
 59.
-    the core packages
+    testing
 60.
+    the core packages
+61.
     iput / output
     Go's io package.
-61.
+62.
     files & folders
     To open a file in Go use the Open function from the os package.
-62.
-    errors
 63.
+    errors
+64.
     containers & sort
     Go has several more collections available underneath the container package.
-64.
+65.
     hashes & cryptography
     Hash functions in Go are broken into two categories:
     cryptographic and non-crypto-graphic.
     The non-cryptographic hash functions can be found underneath the hash package and include adler32, crc32, crc64 and fnv.
-65.
-    servers
 66.
-    HTTP servers
+    servers
 67.
+    HTTP servers
     RPC
     The  net/rpc (remote procedure call) 
     and net/rpc/jsonrpc packages provide an easy way to expose methods 
