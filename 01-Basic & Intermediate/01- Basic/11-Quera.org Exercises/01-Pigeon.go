@@ -21,6 +21,7 @@ func main() {
 	finalUserInput, _ := userInput.ReadString('\n')
 	finalUserInput = strings.TrimSuffix(finalUserInput, "\n")
 
+	
 	counter1 := 0
 	counter2 := 0
 	for _, charachters := range finalUserInput {
