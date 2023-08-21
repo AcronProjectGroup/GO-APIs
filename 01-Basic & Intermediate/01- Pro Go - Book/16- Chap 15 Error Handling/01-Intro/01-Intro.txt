@@ -1,0 +1,7 @@
+What is it?
+    Go’s error handling allows exceptional conditions and failures to be represented
+    and dealt with.
+
+
+
+
