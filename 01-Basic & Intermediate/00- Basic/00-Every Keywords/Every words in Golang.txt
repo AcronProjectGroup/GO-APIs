@@ -208,11 +208,18 @@ in File of Go:
     to a single thread at a time and is used to protect 
     shared resources from non-atomic operations.
 71.
-
+    Collections
 72.
 
 73.
 
+74.
+
+75.
+
+76.
+
+77.
 
 
 in Command Line Interface Go:
