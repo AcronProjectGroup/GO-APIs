@@ -1,3 +1,9 @@
+Source:
+    https://pkg.go.dev/github.com/chenhg5/collection?utm_source=godoc#pkg-examples
+    https://pkg.go.dev/github.com/chenhg5/collection?utm_source=godoc#pkg-examples
+    https://pkg.go.dev/github.com/chenhg5/collection?utm_source=godoc#pkg-examples
+
+
 
 Details
 
@@ -320,7 +326,7 @@ Index ¶
         func (c StringArrayCollection) ToStringArray() []string
         func (c StringArrayCollection) Unique() Collection
 
-Examples ¶
+Examples ¶ https://pkg.go.dev/github.com/chenhg5/collection?utm_source=godoc#pkg-examples
 
     BaseCollection.All
     BaseCollection.Avg
