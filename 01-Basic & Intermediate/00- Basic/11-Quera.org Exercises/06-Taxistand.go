@@ -5,31 +5,20 @@ import (
 )
 
 func main() {
-	// taxistand := Taxistand()
-
-	
-
-	TotalUserInput, Newerr1 := GetFirst()
-	if Newerr1 != nil {
-		fmt.Printf(Newerr1.Error())
-	}
 
 
-	SliceNumber, Newerr2 := GetUserAddInSlice(TotalUserInput)
-	if Newerr2 != nil {
-		fmt.Printf(Newerr2.Error())
-	}
+	// TotalUserInput, Newerr1 := GetFirst()
+	// if Newerr1 != nil {
+	// 	fmt.Printf(Newerr1.Error())
+	// }
 
-	GetSliceNumbers(SliceNumber)
+	// SliceNumber, Newerr2 := GetUserAddInSlice(TotalUserInput)
+	// if Newerr2 != nil {
+	// 	fmt.Printf(Newerr2.Error())
+	// }
 
-}
+	// GetSliceNumbers(SliceNumber)
 
-func Taxistand() []int {
-	var AllStations []int
-	for i := 1; i <= 100; i++ {
-		AllStations = append(AllStations, i)		
-	}
-	return AllStations
 }
 
 func GetFirst() (int, error) {
@@ -42,9 +31,8 @@ func GetFirst() (int, error) {
 	} else if num1 < 1 || num1 >= 20001 {
 		fmt.Println("Error:", err)
 		return 0, err
-		
-	}
 
+	}
 
 	TotalUserInput := num1 * 4
 
@@ -73,41 +61,40 @@ func GetSliceNumbers(originalSlice []int) {
 
 		first := currentSlice[0]
 		second := currentSlice[1]
-		third := currentSlice[2]
-		fourth := currentSlice[3]
-
+		// third := currentSlice[2]
+		// fourth := currentSlice[3]
 
 		convertor := 0
 		if second < first {
-			convertor = first
-			second = first
-			first = convertor
+			convertor = second // 1
+			second = first     // 2
+			first = convertor  // 1
 		}
 
 		// 	// 1 1 1 1
 		// if first == second && first == third && first == fourth {
 		// 	LastSlice = append(LastSlice, 0)
 		// 	// 2 1 1 2
-		// } 
-		
+		// }
+
 		// if first > second && second == third && third < fourth {
 		// 	LastSlice = append(LastSlice, 0)
 		// 	// 2 1 3 2
-		// } 
-		
+		// }
+
 		// if first > second && second < third && third > fourth {
 		// 	LastSlice = append(LastSlice, 1)
 		// 	// 1 1 1 4
 		// }
-		
+
 		// if first == second && second == third && third < fourth {
 		// 	LastSlice = append(LastSlice, 1)
 		// 	// 1 4 1 1
 		// }
-		
+
 		// if first < second && second > third && third == fourth {
 		// 	LastSlice = append(LastSlice, 1)
-		// } 
+		// }
 
 		originalSlice = originalSlice[sliceSize:]
 	}
@@ -117,5 +104,3 @@ func GetSliceNumbers(originalSlice []int) {
 	}
 
 }
-
-
