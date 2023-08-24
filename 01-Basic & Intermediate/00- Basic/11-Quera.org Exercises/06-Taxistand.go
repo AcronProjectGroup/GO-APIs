@@ -20,6 +20,14 @@ func main() {
 
 }
 
+func Taxistand() []int {
+	var AllStations []int
+	for i := 0; i < 100; i++ {
+		AllStations = append(AllStations, i)		
+	}
+	return AllStations
+}
+
 func GetFirst() (int, error) {
 	var num1 int
 	fmt.Print("")
@@ -92,3 +100,5 @@ func GetSliceNumbers(originalSlice []int) {
 	}
 
 }
+
+
