@@ -5,24 +5,31 @@ import (
 )
 
 func main() {
+	taxistand := Taxistand()
 
-	TotalUserInput, Newerr1 := GetFirst()
-	if Newerr1 != nil {
-		fmt.Printf(Newerr1.Error())
+	for indextaxistand := range taxistand {
+		fmt.Println(taxistand[indextaxistand])
 	}
 
-	SliceNumber, Newerr2 := GetUserAddInSlice(TotalUserInput)
-	if Newerr2 != nil {
-		fmt.Printf(Newerr2.Error())
-	}
 
-	GetSliceNumbers(SliceNumber)
+	// TotalUserInput, Newerr1 := GetFirst()
+	// if Newerr1 != nil {
+	// 	fmt.Printf(Newerr1.Error())
+	// }
+
+
+	// SliceNumber, Newerr2 := GetUserAddInSlice(TotalUserInput)
+	// if Newerr2 != nil {
+	// 	fmt.Printf(Newerr2.Error())
+	// }
+
+	// GetSliceNumbers(SliceNumber)
 
 }
 
 func Taxistand() []int {
 	var AllStations []int
-	for i := 0; i < 100; i++ {
+	for i := 1; i <= 100; i++ {
 		AllStations = append(AllStations, i)		
 	}
 	return AllStations
