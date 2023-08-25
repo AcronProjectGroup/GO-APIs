@@ -5,19 +5,21 @@ import "fmt"
 
 func main()  {
 
-	AllDuties := AllDuties()
-	
-	
+	GetNumberOfSoups()
 }
 
 
 
-func AllDuties() []int {
-	var AllDuty []int 
+func GetNumberOfSoups() (int, error) {
+	var NumberUserInput int
+	_, err := fmt.Scanf("%d", &NumberUserInput)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return 0, err
+	} else if NumberUserInput <= 1 || NumberUserInput >= 100001 {
+		fmt.Println("Error:", err)
+		return 0, err
 
-	for i := 1; i <= 1000; i++ {
-		AllDuty = append(AllDuty, i)
 	}
-
-	return AllDuty
+	return NumberUserInput, nil
 }
