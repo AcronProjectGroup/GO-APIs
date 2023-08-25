@@ -1,11 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"bufio"
+	"os"
+	"strings"
+)
 
 
 func main()  {
 
-	GetNumberOfSoups()
+	Number, err1 := GetNumberOfSoups()
+	if err1 != nil {
+		fmt.Println(err1)
+	}
+
+	SliceStrings, err2 := SendSliceOfString(Number)
+	if err2 != nil {
+		fmt.Println(err2)
+	}
+	fmt.Println(SliceStrings)
+
 }
 
 
@@ -22,4 +37,16 @@ func GetNumberOfSoups() (int, error) {
 
 	}
 	return NumberUserInput, nil
+}
+
+
+func SendSliceOfString(Number int) ([]string, error) {
+	var SliceStrings []string
+	for i := 1; i <= Number; i++ {
+		userInput := bufio.NewReader(os.Stdin)
+		finalUserInput, _ := userInput.ReadString('\n')
+		finalUserInput = strings.TrimSuffix(finalUserInput, "\n")
+		SliceStrings = append(SliceStrings, finalUserInput)
+	}
+	return SliceStrings, nil
 }
