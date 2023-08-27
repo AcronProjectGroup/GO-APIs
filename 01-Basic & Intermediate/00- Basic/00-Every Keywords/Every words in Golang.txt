@@ -210,9 +210,11 @@ in File of Go:
 71.
     Collections
 72.
-
+    function recover()
 73.
-
+    function
+        min(1,2)
+        max(1,2)
 74.
 
 75.
@@ -221,6 +223,37 @@ in File of Go:
 
 77.
 
+78.
+
+79.
+
+80.
+
+81.
+
+82.
+
+83.
+
+84.
+
+85.
+
+86.
+
+87.
+
+88.
+
+89.
+
+90.
+
+91.
+
+92.
+
+93.
 
 in Command Line Interface Go:
 1- go mod init YOUR_NAME

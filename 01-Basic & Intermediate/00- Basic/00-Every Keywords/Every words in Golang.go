@@ -5,7 +5,6 @@ import (
 	"os"
 )
 
-
 func main() {
 	// Example for variables
 	var variable string
@@ -173,7 +172,6 @@ func main() {
 	f, _ := os.Open("fileName.txt")
 	defer f.Close()
 
-
 	/* False:
 	func main() {
 		panic("PANIC")
@@ -196,23 +194,21 @@ func main() {
 	zero(xDontChanges)
 	fmt.Println(xDontChanges) // x is still 5
 
-    // new
-	
-
+	// new
 
 	counter := 0
-	target:
-		fmt.Println("Counter", counter)
-		counter++
-		if counter < 5 {
-			goto target
-		}
+target:
+	fmt.Println("Counter", counter)
+	counter++
+	if counter < 5 {
+		goto target
+	}
 
-
-
-
+	fmt.Println(min(1, 2))
+	fmt.Println(max(1, 2))
 
 }
+
 // ------------------------------------------------
 // ------------------------------------------------
 // ------------------------------------------------
