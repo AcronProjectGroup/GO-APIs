@@ -1,1 +1,0 @@
-INSERT INTO test7 (name, surname) VALUES ('{{.field1}}', '{{.field2}}')
