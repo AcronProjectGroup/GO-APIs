@@ -25,16 +25,27 @@ HasSuffix(s, suffix)	This function returns true if the string ends with the stri
 */
 
 package main
+
 import (
 	"fmt"
 	"strings"
 )
+
 func main() {
-	product := "Kayak"
-	fmt.Println("Contains:", strings.Contains(product, "yak"))
+	product := "AcronProject"
+
+	// perform case-sensitive
+	fmt.Println("Contains:", strings.Contains(product, "ron"))
 	fmt.Println("ContainsAny:", strings.ContainsAny(product, "abc"))
-	fmt.Println("ContainsRune:", strings.ContainsRune(product, 'K'))
-	fmt.Println("EqualFold:", strings.EqualFold(product, "KAYAK"))
-	fmt.Println("HasPrefix:", strings.HasPrefix(product, "Ka"))
-	fmt.Println("HasSuffix:", strings.HasSuffix(product, "yak"))
+	fmt.Println("ContainsRune:", strings.ContainsRune(product, 'P'))
+	fmt.Println("HasPrefix:", strings.HasPrefix(product, "Ac"))
+	fmt.Println("HasSuffix:", strings.HasSuffix(product, "ct"))
+	
+
+	// None case-sensitive
+	fmt.Println()
+	fmt.Println("EqualFold:", strings.EqualFold(product, "ACRONPROJECT"))
+	fmt.Println("EqualFold:", strings.EqualFold(product, "acronproject"))
+	fmt.Println()
+	
 }
