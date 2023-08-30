@@ -1,0 +1,1 @@
+// Use the functions provided by the strings or regexp package

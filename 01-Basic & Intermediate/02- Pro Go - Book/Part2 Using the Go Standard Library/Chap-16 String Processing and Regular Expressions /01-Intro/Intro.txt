@@ -21,6 +21,12 @@ Are there any pitfalls or limitations?
     There are some quirks in the way that some of these operations are
     performed, but they mostly behave as you would expect.
 
+Are there any alternatives?
+    The use of these packages is optional, and they do not have
+    to be used. That said, there is little point in creating your own
+    implementations of these features since the standard library is well-
+    written and thoroughly tested.
+
 
 
 

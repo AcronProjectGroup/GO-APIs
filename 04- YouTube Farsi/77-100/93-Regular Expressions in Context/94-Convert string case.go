@@ -1,0 +1,1 @@
+// Use the ToLower, ToUpper, Title, or ToTitle function in the strings package

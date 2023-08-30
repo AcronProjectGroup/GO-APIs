@@ -1,0 +1,1 @@
+// Use the Join or Repeat function in the strings package
