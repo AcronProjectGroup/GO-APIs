@@ -20,3 +20,16 @@ ToTitle(str)		This function returns a new string containing the characters in th
 
 */
 
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func main() {
+	description := "A boat for sailing"
+	fmt.Println("Original:", description)
+	fmt.Println("Title:", strings.ToTitle(description))
+}
+
