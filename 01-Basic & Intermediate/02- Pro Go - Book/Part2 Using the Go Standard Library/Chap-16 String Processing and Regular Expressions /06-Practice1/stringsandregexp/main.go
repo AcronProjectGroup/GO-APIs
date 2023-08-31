@@ -11,6 +11,7 @@ func main() {
 	description := "A boat for sailing"
 	
 	fmt.Println("Original:", description)
+	fmt.Println("ToUpper:", strings.Title(description))
 	fmt.Println("ToLower:", strings.ToLower(description))
 	fmt.Println("ToTitle:", strings.ToTitle(description))
 	fmt.Println("ToUpper:", strings.ToUpper(description))
