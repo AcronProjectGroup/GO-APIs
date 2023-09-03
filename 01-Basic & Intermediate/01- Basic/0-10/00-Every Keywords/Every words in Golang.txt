@@ -216,7 +216,8 @@ in File of Go:
         min(1,2)
         max(1,2)
 74.
-
+    Currying
+    Function currying is the practice of writing a function that takes a function (or functions) as input, and returns a new function.
 75.
 
 76.
