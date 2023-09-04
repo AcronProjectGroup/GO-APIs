@@ -240,11 +240,13 @@ in File of Go:
     This function returns the string s without any leading character contained
 	in the string set. This function matches any of the specified characters—use
 	the TrimPrefix function to remove a complete substring.
-
 80.
-
+    TrimRight(s, set)
+    This function returns the string s without any trailing character contained
+	in the string set. This function matches any of the specified characters—use
+	the TrimSuffix function to remove a complete substring.
 81.
-
+    
 82.
 
 83.
