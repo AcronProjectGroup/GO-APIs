@@ -246,7 +246,11 @@ in File of Go:
 	in the string set. This function matches any of the specified characters—use
 	the TrimSuffix function to remove a complete substring.
 81.
-    
+    TrimPrefix(s, prefix)
+    function returns the string s after removing the specified prefix string.
+	This function removes the complete prefix string—use the TrimLeft
+	function to remove characters from a set.
+
 82.
 
 83.
