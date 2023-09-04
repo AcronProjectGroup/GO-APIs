@@ -1,3 +1,9 @@
+in Command Line Interface Go:
+1- go mod init YOUR_NAME
+2- go work init YOUR_WORK_DIRECTORY
+3- go run main.go  OR  go run projectName.go
+
+
 in File of Go:
 -------------
 1.
@@ -276,7 +282,7 @@ in File of Go:
     function generates a string by repeating the string s for a specified number
 	of times.
 88.
-    
+
 89.
 
 90.
@@ -287,7 +293,49 @@ in File of Go:
 
 93.
 
-in Command Line Interface Go:
-1- go mod init YOUR_NAME
-2- go work init YOUR_WORK_DIRECTORY
-3- go run main.go  OR  go run projectName.go
+94.
+
+95.
+
+96.
+
+97.
+
+98.
+
+99.
+
+100.
+
+101.
+
+102.
+
+103.
+
+104.
+
+105.
+
+106.
+
+107.
+
+108.
+
+109.
+
+110.
+
+111.
+
+112.
+
+113.
+
+114.
+
+115.
+
+
+
