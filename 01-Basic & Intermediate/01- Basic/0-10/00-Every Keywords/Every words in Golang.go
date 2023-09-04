@@ -14,7 +14,10 @@ Using the Go Command
     The go build command compiles the source code in the current directory and generates an
     executable file, as described in the “Compiling and Running Source Code” section.
 2.
-    
+    clean
+    The go clean command removes the output produced by the go build command, including
+    the executable and any temporary files that were created during the build, as described in the
+    “Compiling and Running Source Code” section.
 3. 
 4. 
 5. 
