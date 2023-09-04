@@ -228,10 +228,18 @@ in File of Go:
 	and write the results to an io.Writer
 
 77.
-    
+    TrimSpace(s)			
+    This function returns the string s without leading or trailing whitespace
+	characters.
 78.
-
+    Trim(s, set)
+    This function returns a string from which any leading or trailing characters
+	contained in the string set are removed from the string s.
 79.
+    TrimLeft(s, set)
+    This function returns the string s without any leading character contained
+	in the string set. This function matches any of the specified characters—use
+	the TrimPrefix function to remove a complete substring.
 
 80.
 
