@@ -250,11 +250,13 @@ in File of Go:
     function returns the string s after removing the specified prefix string.
 	This function removes the complete prefix string—use the TrimLeft
 	function to remove characters from a set.
-
 82.
-
+    TrimSuffix(s, suffix)
+    function returns the string s after removing the specified suffix string.
+	This function removes the complete suffix string—use the TrimRight
+	function to remove characters from a set.
 83.
-
+    
 84.
 
 85.
