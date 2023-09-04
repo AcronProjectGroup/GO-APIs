@@ -219,11 +219,16 @@ in File of Go:
     Currying
     Function currying is the practice of writing a function that takes a function (or functions) as input, and returns a new function.
 75.
-
+    Replace(s)
+    This method returns a string for which all the replacements specified with the
+    constructor have been performed on the string s.
 76.
+    WriteString(writer, s)	
+    This method is used to perform the replacements specified with the constructor
+	and write the results to an io.Writer
 
 77.
-
+    
 78.
 
 79.
