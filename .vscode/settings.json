@@ -5,7 +5,7 @@
       "editor.selectionBackground": "#003aff"
     },
     "editor.tokenColorCustomizations": {
-      "comments": "#ff00aa"
+      "comments": "#ffee00"
     },
     "explorer.confirmDelete": false,
     "googleTranslateExt.languages": [
