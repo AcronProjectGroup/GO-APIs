@@ -1,2 +1,16 @@
+# 1
 go mod init github.com/sinalalebakhsh/Gocron
-# go: creating new go.mod
+# Result:
+# go: creating new go.mod: module github.com/sinalalebakhsh/Gocron
+
+# 2
+# create new main.go
+# write go program
+
+# 3
+# create repository like that
+# github.com/sinalalebakhsh/Gocron
+
+
+
+
