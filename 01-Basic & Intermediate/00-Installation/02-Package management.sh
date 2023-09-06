@@ -21,6 +21,18 @@ git remote add origin https://github.com/sinalalebakhsh/Gocron
 # 6
 git add .
 
+# 7
+git commit -m "Initial commit"
+
+# 8
+git push --set-upstream origin master
+
+# 9
+git tag "v1.0.0"
+
+# 10
+git push --tags
+
 
 
 
