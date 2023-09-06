@@ -32,6 +32,8 @@ git tag "v1.0.0"
 
 # 10
 git push --tags
+# Result:
+# * [new tag]       v1.0.0 -> v1.0.0
 
 
 
