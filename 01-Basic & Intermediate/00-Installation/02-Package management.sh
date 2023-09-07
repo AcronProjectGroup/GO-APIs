@@ -35,6 +35,10 @@ git push --tags
 # Result:
 # * [new tag]       v1.0.0 -> v1.0.0
 
+# 11
+go mod init another-project-optional
 
+# 12
+go get -u github.com/sinalalebakhsh/Gocron
 
 
