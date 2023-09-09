@@ -1,1 +1,0 @@
-UPDATE Orders SET Shipped = ? WHERE Id == ?
