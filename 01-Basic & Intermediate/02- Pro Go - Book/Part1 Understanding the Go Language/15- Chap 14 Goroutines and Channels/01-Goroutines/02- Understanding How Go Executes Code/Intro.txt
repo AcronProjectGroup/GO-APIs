@@ -1,3 +1,0 @@
-The key building block for executing a Go program is the goroutine, which is a lightweight thread created by
-the Go runtime. All Go programs use at least one goroutine because this is how Go executes the code in the
-main function.
