@@ -42,4 +42,21 @@ Output:
 	go: downloading gopkg.in/yaml.v3 v3.0.1
 	go: downloading golang.org/x/sys v0.13.0
 	go: downloading golang.org/x/text v0.13.0
+
+============================================================================================
+
+Second in Terminal:
+	go run .
+
+Output:
+   ____    __
+  / __/___/ /  ___
+ / _// __/ _ \/ _ \
+/___/\__/_//_/\___/ v4.11.2
+High performance, minimalist Go web framework
+https://echo.labstack.com
+____________________________________O/_______
+                                    O\
+⇨ http server started on [::]:1323
+
 */
