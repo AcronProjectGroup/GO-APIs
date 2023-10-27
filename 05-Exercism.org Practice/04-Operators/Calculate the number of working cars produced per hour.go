@@ -17,3 +17,9 @@ Note: the return value should be a float64.
 
 */
 
+// CalculateWorkingCarsPerHour calculates how many working cars are
+// produced by the assembly line every hour.
+func CalculateWorkingCarsPerHour(productionRate int, successRate float64) float64 {
+	last := float64(productionRate) * successRate / 100
+    return last
+}
